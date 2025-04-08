@@ -8,8 +8,24 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedTab = 1
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            switch selectedTab {
+            case 0: ProfilePage()
+            case 1: MatchView()
+            case 2: InsightView()
+            case 3: MessageView()
+            default: ProfilePage()
+            }
+            
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+                    .padding(.horizontal)
+            }
+        }
     }
 }
 
