@@ -38,9 +38,12 @@ extension NameView {
             .font(.custom("K2D-Bold", size: 18))
             .bold()
             .foregroundColor(.white)
-            .frame(maxWidth: .infinity, minHeight: 50)
-            .background(TheName.isEmpty ? Color.gray.opacity(0.5) : Color.black)
-            .cornerRadius(99)
+            .frame(width: 360, height: 60)
+//            .background(TheName.isEmpty ? Color.gray.opacity(0.8) : Color.black)
+            .background {
+                RoundedRectangle(cornerRadius: 60)
+                    .foregroundStyle(TheName.isEmpty ? Color.black.opacity(0.3): Color.black)
+            }
             .padding(.horizontal)
     }
     
@@ -59,7 +62,8 @@ extension NameView {
                 .frame(width: 360, height: 60)
                 .background(
                     RoundedRectangle(cornerRadius: 60)
-                        .foregroundStyle(Color.skinn)
+//                        .foregroundStyle(Color.skinn)
+                        .opacity(0.2)
                 )
                 .padding(.horizontal)
         }
