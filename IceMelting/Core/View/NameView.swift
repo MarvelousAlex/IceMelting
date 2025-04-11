@@ -9,64 +9,20 @@ import SwiftUI
 
 struct NameView: View {
     
-    // State variables for text fields or other UI elements
-    @State private var name: String = ""
+    @State private var TheName: String = ""
     
     var body: some View {
-        ZStack {
-            // 1. Background color
-            Color.gray
-                .ignoresSafeArea()
-            
-            // 2. Decorative elements in the background
-            //    These can be images, shapes, or custom SwiftUI views
-            ZStack {
-                // Example Spark image
-                Image("NameViewSpark")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-                    // Dim or shift the position to taste
-//                    .opacity(0.2)
-                    .offset(x: 100, y: -280)
-                    .ignoresSafeArea()
-                
-                // Example geometric shape (rectangle) in background
-                Image("Triangles")
-                    .resizable()
-                    .frame(width: 200, height: 200)
-                    .offset(x: -120, y: -20)
-            }
-            
-            // 3. Main content in the foreground
-            VStack(spacing: 20) {
-                
-                Text("Enter Your Name")
-                    .font(.title)
-                    .foregroundColor(.black)
-                
-                TextField("", text: $name)
-                    .padding(.horizontal, 15)
-                    .frame(height: 50)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .foregroundColor(.white)
-                    )
-                    .padding(.horizontal)
-                
-                Button(action: {
-                    // Handle the send action here
-                }) {
-                    Text("SEND")
-                        .font(.system(.title3, design: .rounded))
-                        .bold()
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, minHeight: 50)
-                        .background(Color.black)
-                        .cornerRadius(25)
-                        .padding(.horizontal)
+        NavigationStack {
+            MainComponents
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        MainView()
+                    } label: {
+                        LeaveButtonText
+                    }
                 }
             }
-            // Add additional spacing or alignment as needed
         }
     }
 }
@@ -76,15 +32,68 @@ struct NameView: View {
 }
 
 extension NameView {
+    
     private var SendLabel: some View {
-        Text("Send")
-            .font(.custom("Nunito-Regular", size: 20))
-            .foregroundStyle(Color.white)
-            .padding()
-            .frame(height: 50)
-            .background {
-                RoundedRectangle(cornerRadius: 20)
-                    .foregroundStyle(Color.black)
-            }
+        Text("SEND")
+            .font(.custom("K2D-Bold", size: 18))
+            .bold()
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity, minHeight: 50)
+            .background(TheName.isEmpty ? Color.gray.opacity(0.5) : Color.black)
+            .cornerRadius(99)
+            .padding(.horizontal)
     }
+    
+    private var NameEnteringComponents: some View {
+        VStack(spacing: 10) {
+            
+            HStack(spacing:0) {
+                Text("Enter Your ")
+                    .font(.custom("K2D-Regular", size: 18))
+                Text("Name")
+                    .font(.custom("K2D-SemiBold", size: 18))
+            }
+            
+            TextField("", text: $TheName)
+                .padding(.horizontal, 15)
+                .frame(width: 360, height: 60)
+                .background(
+                    RoundedRectangle(cornerRadius: 60)
+                        .foregroundStyle(Color.skinn)
+                )
+                .padding(.horizontal)
+        }
+    }
+    
+    private var MainComponents: some View {
+        ZStack {
+            Color.pureWhite.ignoresSafeArea()
+                Image("NameImg1")
+                    .resizable()
+                    .frame(width: 400, height: 612)
+                    .padding(.bottom, 60)
+            if TheName.isEmpty {
+                SendLabel
+                    .padding(.top, 700)
+            } else {
+                NavigationLink {
+                    QuestionView1()
+                } label: {
+                    SendLabel
+                }
+                .padding(.top, 700)
+            }
+            
+            NameEnteringComponents // Enter your name and the text field
+            
+        }
+    }
+    
+    private var LeaveButtonText: some View {
+        Text("Leave")
+            .font(.custom("K2D-SemiBold", size: 14))
+            .foregroundStyle(Color.black)
+            .padding(.trailing, 15)
+    }
+    
 }
