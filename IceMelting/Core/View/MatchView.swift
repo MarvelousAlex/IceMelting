@@ -1,0 +1,77 @@
+//
+//  MatchView.swift
+//  IceMelting
+//
+//  Created by Wendy Zhou on 28/3/2025.
+//
+
+import SwiftUI
+
+struct MatchView: View {
+    
+    @State private var CodeNum: String = ""
+    
+    var body: some View {
+        NavigationStack {
+            ZStack{
+                
+                Color.skinYellow.ignoresSafeArea()
+                Image("MatchImg")
+                    .resizable()
+                    .frame(width: 410, height: 530)
+                    .padding(.top, 40)
+                
+                VStack(alignment: .leading) {
+                    Text("Play,")
+                        .font(.custom("K2D-Light", size: 55))
+                    HStack{
+                        Text("Match, ")
+                            .font(.custom("K2D-SemiBold", size: 55))
+                        Text("Enjoy.")
+                            .font(.custom("K2D-Light", size: 55))
+                    }
+                    Text("Join the Match Game!")
+                    Spacer()
+                }.offset(x: -10)
+                
+                VStack(spacing:10) {
+                    Spacer().frame(height: 500)
+                    Text("Enter The Code")
+                        .font(.custom("K2D-SemiBold", size: 24))
+                    HStack(spacing: 20) {
+                        TextField("", text: $CodeNum)
+                            .padding(15)
+                            .frame(height: 50)
+                            .background {
+                                RoundedRectangle(cornerRadius: 20).opacity(0.2)
+                            }
+                        NavigationLink {
+                            NameView()
+                        } label: {
+                            EnterLabel
+                        }
+                    }
+                    .padding(.horizontal, 40)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    MatchView()
+}
+
+extension MatchView {
+    private var EnterLabel: some View {
+        Text("Enter")
+            .font(.custom("Nunito-Regular", size: 20))
+            .foregroundStyle(Color.white)
+            .padding()
+            .frame(height: 50)
+            .background {
+                RoundedRectangle(cornerRadius: 20)
+                    .foregroundStyle(Color.black)
+            }
+    }
+}

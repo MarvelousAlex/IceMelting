@@ -5,6 +5,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Nunito-Regular.ttf</string>
+		<string>K2D-Light.ttf</string>
+		<string>K2D-Regular.ttf</string>
+		<string>K2D-SemiBold.ttf</string>
+		<string>K2D-Bold.ttf</string>
 	</array>
 </dict>
 </plist>
