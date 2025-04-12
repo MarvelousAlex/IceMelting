@@ -38,7 +38,7 @@ struct QuestionView1: View {
                         .padding(.top, 700)
                 } else {
                     NavigationLink {
-                        QuestionView1()
+                        SumView1()
                     } label: {
                         SendLabel
                     }
