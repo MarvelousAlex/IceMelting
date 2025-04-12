@@ -13,7 +13,39 @@ struct NameView: View {
     
     var body: some View {
         NavigationStack {
-            MainComponents
+            ZStack {
+                Color.pureWhite.ignoresSafeArea()
+                Image("NameImg1").offset(y: -65)
+                VStack(alignment: .center, spacing: 10) {
+                    HStack(spacing:0) {
+                        Text("Enter Your ")
+                            .font(.custom("K2D-Regular", size: 22))
+                        Text("Name🫶🏻")
+                            .font(.custom("K2D-SemiBold", size: 22))
+                    }
+                    .foregroundStyle(Color.black)
+                    
+                    TextField("", text: $TheName)
+                        .padding(.horizontal, 15)
+                        .foregroundStyle(Color.black)
+                        .frame(width: 360, height: 60)
+                        .background{
+                            RoundedRectangle(cornerRadius: 60)
+                        }
+                        .padding(.horizontal)
+                    Spacer().frame(height: 20)
+                    if TheName.isEmpty {
+                        SendLabel
+                    } else {
+                        NavigationLink {
+                            QuestionView1()
+                        } label: {
+                            SendLabel
+                        }
+                    }
+                        
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
@@ -23,6 +55,7 @@ struct NameView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }
@@ -52,10 +85,11 @@ extension NameView {
             
             HStack(spacing:0) {
                 Text("Enter Your ")
-                    .font(.custom("K2D-Regular", size: 18))
+                    .font(.custom("K2D-Regular", size: 22))
                 Text("Name")
-                    .font(.custom("K2D-SemiBold", size: 18))
+                    .font(.custom("K2D-SemiBold", size: 22))
             }
+            .foregroundStyle(Color.black)
             
             TextField("", text: $TheName)
                 .padding(.horizontal, 15)
@@ -72,10 +106,7 @@ extension NameView {
     private var MainComponents: some View {
         ZStack {
             Color.pureWhite.ignoresSafeArea()
-                Image("NameImg1")
-                    .resizable()
-                    .frame(width: 400, height: 612)
-                    .padding(.bottom, 60)
+            Image("NameImg1").offset(y: -65)
             if TheName.isEmpty {
                 SendLabel
                     .padding(.top, 700)

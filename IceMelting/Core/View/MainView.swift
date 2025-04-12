@@ -20,10 +20,8 @@ struct MainView: View {
             default: ProfilePage()
             }
             
-            VStack {
-                Spacer()
-                CustomTabBar(selectedTab: $selectedTab)
-            }
+            CustomTabBar(selectedTab: $selectedTab)
+                .padding(.top, 700)
         }
         .navigationBarBackButtonHidden()
 //        .ignoresSafeArea()

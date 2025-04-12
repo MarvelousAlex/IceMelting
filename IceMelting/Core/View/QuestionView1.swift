@@ -17,33 +17,6 @@ struct QuestionView1: View {
                 
                 ProgressBar(step1Complete: true, step2Complete: false, step3Complete: false)
                     .padding(.bottom, 700)
-                VStack {
-                    
-                    Text("Your Answer")
-                        .font(.custom("K2D-SemiBold", size: 20))
-                    TextField("", text: $TheAns)
-                        .padding(.leading, 15)
-                        .frame(width: 360, height: 60)
-                        .background {
-                            RoundedRectangle(cornerRadius: 60)
-                                .opacity(0.1)
-                            // .foregroundStyle(Color.textBox)
-//                                .opacity(0.5)
-                        }
-                }
-                .padding(.top, 500)
-                
-                if TheAns.isEmpty {
-                    SendLabel
-                        .padding(.top, 700)
-                } else {
-                    NavigationLink {
-                        SumView1()
-                    } label: {
-                        SendLabel
-                    }
-                    .padding(.top, 700)
-                }
                 
                 VStack(spacing: 0) {
                     
@@ -66,7 +39,37 @@ struct QuestionView1: View {
                     
                     Spacer().frame(height: 200)
                             
-                }
+                } // what do you study
+                
+                VStack {
+                    
+                    Text("Your Answer")
+                        .font(.custom("K2D-SemiBold", size: 20))
+                    TextField("", text: $TheAns)
+                        .padding(.leading, 15)
+                        .frame(width: 360, height: 60)
+                        .background {
+                            RoundedRectangle(cornerRadius: 60)
+                                .opacity(0.1)
+                            // .foregroundStyle(Color.textBox)
+//                                .opacity(0.5)
+                        }
+                } // answer box
+                .padding(.top, 500)
+                
+                if TheAns.isEmpty {
+                    SendLabel
+                        .padding(.top, 700)
+                } else {
+                    NavigationLink {
+                        SumView1()
+                    } label: {
+                        SendLabel
+                    }
+                    .padding(.top, 700)
+                } // send button
+                
+                
             }
             .navigationBarBackButtonHidden()
         }

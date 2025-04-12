@@ -11,11 +11,12 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Int
 
     var body: some View {
-        HStack {
+        HStack(spacing: 0) {
             Button(action: { selectedTab = 0 }) {
                 VStack(spacing: 0) {
                     Image("Profilee")
                     Text("Profile")
+                        .foregroundStyle(Color.white)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -24,6 +25,7 @@ struct CustomTabBar: View {
                 VStack(spacing: 0) {
                     Image("HandShake")
                     Text("Match")
+                        .foregroundStyle(Color.white)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -32,6 +34,7 @@ struct CustomTabBar: View {
                 VStack(spacing: 0) {
                     Image("Bulbb")
                     Text("Insight")
+                        .foregroundStyle(Color.white)
                 }
             }
             .frame(maxWidth: .infinity)
@@ -40,16 +43,17 @@ struct CustomTabBar: View {
                 VStack(spacing: 0) {
                     Image("Messagee")
                     Text("Message")
+                        .foregroundStyle(Color.white)
                 }
             }
             .frame(maxWidth: .infinity)
         }
-        .foregroundStyle(Color.white)
         .font(.custom("K2D-SemiBold", size: 15))
         .padding()
         .background {
             RoundedRectangle(cornerRadius: 30)
                 .frame(width: 360, height: 60)
+                .foregroundStyle(Color.black)
         }
         .shadow(radius: 2)
     }

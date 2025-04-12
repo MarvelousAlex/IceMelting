@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct MatchView: View {
     
@@ -13,16 +14,13 @@ struct MatchView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack{
-                
+            ZStack {
                 Color.skinYellow.ignoresSafeArea()
-                
-                BGImage // Shapes at the background
-                
-                HeadTitles // Play, Match, Enjoy components
-                
-                CodeEnterSpace // Enter The Code components
-                
+                BGImage
+                VStack {
+                    HeadTitles.offset(y: -250)
+                    CodeEnterSpace.offset(y: 140)
+                }
             }
         }
     }
@@ -46,21 +44,24 @@ extension MatchView {
             }
             Text("Join the Match Game!")
                 .font(.custom("K2D-Light", size: 20))
-            Spacer()
-        }.offset(x: -10)
+        }
+        .foregroundStyle(Color.black)
+        .offset(x: -10)
     }
     
     private var CodeEnterSpace: some View {
         VStack(spacing:10) {
-            Spacer().frame(height: 500)
             Text("Enter The Code")
+                .foregroundStyle(Color.black)
                 .font(.custom("K2D-SemiBold", size: 24))
             HStack(spacing: 20) {
                 TextField("", text: $CodeNum)
                     .padding(15)
-                    .frame(height: 50)
+                    .frame(height: 50, alignment: .center)
+                    .foregroundColor(.white)
                     .background {
-                        RoundedRectangle(cornerRadius: 16).opacity(0.2)
+                        RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                            .foregroundStyle(Color.gray.opacity(0.5))
                     }
                 if !CodeNum.isEmpty {
                     NavigationLink {
@@ -78,13 +79,12 @@ extension MatchView {
     
     private var BGImage: some View {
         Image("MatchImg")
-            .resizable()
-            .frame(width: 410, height: 530)
-            .padding(.top, 40)
+//            .resizable()
+            .frame(width: 410, height: 480)
     }
     
     private var EnterLabel: some View {
-        Text("Enter")
+        Text("Go💨")
             .font(.custom("K2D-Bold", size: 20))
             .foregroundStyle(Color.white)
             .padding()

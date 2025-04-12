@@ -13,13 +13,18 @@ struct WelcomePage: View {
             ZStack {
                 Color.pureWhite.ignoresSafeArea()
                 
-                Image("AppIconImage")
-                    .resizable()
-                    .frame(width: 450, height: 480)
-                
                 NavigationLink {
-                    MainView()
+                    AppEggView()
                 } label: {
+                    Image("AppIconImage")
+                        .resizable()
+                        .frame(width: 450, height: 480)
+                }
+               
+                    
+                
+                // Hidden NavigationLink triggered by isActive
+                NavigationLink(destination: MainView()) {
                     StartingLabel
                 }
                 .padding(.top, 700)
@@ -42,6 +47,5 @@ extension WelcomePage {
                     .frame(width: 360, height: 60)
                     .foregroundStyle(Color.black)
             }
-        
     }
 }
