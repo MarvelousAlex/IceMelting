@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct WelcomePage: View {
+    @State private var goToAppEgg = false
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.pureWhite.ignoresSafeArea()
                 
-                NavigationLink {
-                    AppEggView()
-                } label: {
-                    Image("AppIconImage")
-                        .resizable()
-                        .frame(width: 450, height: 480)
-                }
-               
-                    
+                Image("AppIconImage")
+                    .resizable()
+                    .frame(width: 450, height: 480)
+                    .onTapGesture(count: 2) {
+                        goToAppEgg = true
+                    }
                 
-                // Hidden NavigationLink triggered by isActive
                 NavigationLink(destination: MainView()) {
                     StartingLabel
                 }
                 .padding(.top, 700)
+            }
+            // Attach the new navigationDestination modifier on the NavigationStack.
+            .navigationDestination(isPresented: $goToAppEgg) {
+                AppEggView()
             }
         }
     }
