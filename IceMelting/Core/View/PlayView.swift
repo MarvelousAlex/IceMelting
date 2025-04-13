@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  PlayView.swift
 //  IceMelting
 //
 //  Created by Wendy Zhou on 28/3/2025.
@@ -7,17 +7,16 @@
 
 import SwiftUI
 
-struct MainView: View {
-    @State private var selectedTab = 1
+struct PlayView: View {
+    @State private var selectedTab = 0
     
     var body: some View {
         ZStack {
             switch selectedTab {
-            case 0: ProfilePage()
-            case 1: MatchView()
-            case 2: InsightView()
-            case 3: MessageView()
-            default: ProfilePage()
+            case 0: MatchView()
+            case 1: InsightView()
+            case 2: MessageView()
+            default: ProfileView()
             }
             
             CustomTabBar(selectedTab: $selectedTab)
@@ -29,5 +28,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    PlayView()
 }

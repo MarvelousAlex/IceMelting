@@ -16,10 +16,10 @@ struct MatchView: View {
         NavigationStack {
             ZStack {
                 Color.skinYellow.ignoresSafeArea()
-                BGImage
+                BGImage.offset(y: -30)
                 VStack {
                     HeadTitles.offset(y: -250)
-                    CodeEnterSpace.offset(y: 140)
+                    CodeEnterSpace.offset(y: 100)
                 }
             }
         }

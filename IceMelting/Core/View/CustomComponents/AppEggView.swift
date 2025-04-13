@@ -28,7 +28,7 @@ struct AppEggView: View {
                 Text("Project Contributer:👍🏻")
                     .font(.custom("Nunito-Bold", size: 22))
                 Text("Yun Chao - UI/UX Designer")
-                Text("Chien-Yuan Chu - Project coordinator")
+                Text("Chien-Yuan Chu - Project Coordinator")
                 Text("Abdulrhman Fahad A Alorini")
                 Text("Wende Zhou - App Developer")
                 Spacer()

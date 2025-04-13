@@ -11,7 +11,7 @@ import SwiftUI
 struct IceMeltingApp: App {
     var body: some Scene {
         WindowGroup {
-            AppEggView()
+            WelcomePage()
         }
     }
 }

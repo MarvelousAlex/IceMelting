@@ -22,7 +22,7 @@ struct WelcomePage: View {
                         goToAppEgg = true
                     }
                 
-                NavigationLink(destination: MainView()) {
+                NavigationLink(destination: PlayView()) {
                     StartingLabel
                 }
                 .padding(.top, 700)

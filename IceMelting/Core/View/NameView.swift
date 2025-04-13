@@ -49,7 +49,7 @@ struct NameView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
-                        MainView()
+                        PlayView()
                     } label: {
                         LeaveButtonText
                     }
