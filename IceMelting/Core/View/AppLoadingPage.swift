@@ -1,5 +1,5 @@
 //
-//  WelcomePage.swift
+//  AppLoadingPage.swift
 //  IceMelting
 //
 //  Created by Wendy Zhou on 11/4/2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct WelcomePage: View {
+struct AppLoadingPage: View {
     @State private var goToAppEgg = false
 
     var body: some View {
@@ -36,10 +36,10 @@ struct WelcomePage: View {
 }
 
 #Preview {
-    WelcomePage()
+    AppLoadingPage()
 }
 
-extension WelcomePage {
+extension AppLoadingPage {
     private var StartingLabel: some View {
         Text("ENTER")
             .font(.custom("K2D-SemiBold", size: 20))
