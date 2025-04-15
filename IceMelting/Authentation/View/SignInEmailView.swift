@@ -7,42 +7,19 @@
 
 import SwiftUI
 
-final class SignInEmailViewModel: ObservableObject {
-    @Published var email = ""
-    @Published var password = ""
-    
-    func signUp() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No info found")
-            return
-        }
-        
-        let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
-    }
-    
-    func signIn() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No info found")
-            return
-        }
-        
-        let returnedUserData = try await AuthenticationManager.shared.signInUser(email: email, password: password)
-    }
-}
-
 struct SignInEmailView: View {
     
-    @StateObject private var vm = SignInEmailViewModel()
+    @StateObject private var EmailVM = SignInEmailViewModel()
     @Binding var showSignInView: Bool
     
     var body: some View {
         VStack(spacing: 30) {
-            TextField("Email...", text: $vm.email)
+            TextField("Email...", text: $EmailVM.email)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
              
-            SecureField("Password...", text: $vm.password)
+            SecureField("Password...", text: $EmailVM.password)
                 .padding()
                 .background(Color.gray.opacity(0.4))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
@@ -50,7 +27,7 @@ struct SignInEmailView: View {
             Button {
                 Task {
                     do {
-                        try await vm.signUp()
+                        try await EmailVM.signUp()
                         showSignInView = false
                         return
                     } catch {
@@ -58,7 +35,7 @@ struct SignInEmailView: View {
                     }
                     
                     do {
-                        try await vm.signIn()
+                        try await EmailVM.signIn()
                         showSignInView = false
                         return
                     } catch {

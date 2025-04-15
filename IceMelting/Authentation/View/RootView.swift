@@ -15,7 +15,7 @@ struct RootView: View {
         ZStack {
             if !showSingInView {
                 NavigationStack {
-                    SettingsView(showSignInView: $showSingInView)
+                    AppLoadingPage()
                 }
             }
         }
