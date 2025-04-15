@@ -18,7 +18,7 @@ struct AuthenticationView: View {
     var body: some View {
         ZStack {
             Color.skinn.ignoresSafeArea()
-            VStack {
+            VStack(spacing: 20) {
                 Text("Welcome")
                     .font(.custom("K2D-Regular", size: 20))
                     .frame(maxWidth: .infinity)
@@ -37,45 +37,61 @@ struct AuthenticationView: View {
                         Image("Google-cloud")
                             .resizable()
                             .frame(width: 60, height: 60)
-                        Text("Sign in with Google")
+                        Text("Register with Google")
                             .font(.custom("K2D-Bold", size: 18))
+                            .foregroundStyle(Color.white)
                     }
-                    .foregroundStyle(Color.white)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .background {
+                        RoundedRectangle(cornerRadius: 99)
+                            .frame(width: 360, height: 60)
+                            .foregroundStyle(Color.black)
+                    }
                 }
                 
-//            TODO: Sign in with facebook
+                //            TODO: Sign in with facebook
                 
-                Spacer()
+                //                Spacer()
                 
                 HStack {
                     Rectangle()
-                        .frame(width: 100, height: 1)
-                        .offset(x: -15)
-                    Text("Or log in with email")
+                        .frame(width: 85, height: 1)
+                        .offset(x: -10)
+                    Text("Or register with email")
                     Rectangle()
-                        .frame(width: 100, height: 1)
-                        .offset(x: 15)
+                        .frame(width: 85, height: 1)
+                        .offset(x: 10)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(width: 360)
                 
-                TextField("Email...", text: $EmailVM.email)
-                    .padding()
-                    .background(Color.gray.opacity(0.4))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Email")
+                        .font(.custom("K2D-SemiBold", size: 16))
+                        .frame(alignment: .leading)
+                    TextField("Enter your email...", text: $EmailVM.email)
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    Spacer().frame(height: 10)
+                    Text("Password")
+                        .font(.custom("K2D-SemiBold", size: 16))
+                    SecureField("Enter your password...", text: $EmailVM.password)
+                        .padding()
+                        .background(Color.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                    Text("Forget Password🤔")
+                        .font(.custom("K2D-SemiBold", size: 14))
+                        .underline()
+                }
+                .frame(width: 360)
                 
-                SecureField("Password...", text: $EmailVM.password)
-                    .padding()
-                    .background(Color.gray.opacity(0.4))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                
+                Spacer()
+                Text("Don't have a account?")
+                    .font(.custom("K2D-SemiBold", size: 14))
+                    .underline()
                 Button {
                     Task {
                         do {
-                            try await EmailVM.signUp()
+                            try await EmailVM.signUp() // also sign in is there 😍
                             showSignInView = false
                             return
                         } catch {
@@ -91,19 +107,19 @@ struct AuthenticationView: View {
                         }
                     }
                 } label: {
-                    Text("Sign In With Email")
+                    Text("Login")
                         .font(.headline)
                         .foregroundStyle(Color.white)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .background {
+                            RoundedRectangle(cornerRadius: 99)
+                                .frame(width: 360, height: 60)
+                                .foregroundStyle(Color.black)
+                        }
                 }
                 
                 
                 Spacer()
             }
-//            .padding(.horizontal, 30)
         }
     }
 }
