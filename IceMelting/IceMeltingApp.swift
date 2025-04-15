@@ -6,7 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
 import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+}
 
 @main
 struct IceMeltingApp: App {
@@ -15,16 +24,8 @@ struct IceMeltingApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                RegistrationView()
+                RootView()
             }
         }
-    }
-}
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        return true
     }
 }

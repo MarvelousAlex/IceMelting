@@ -10,9 +10,9 @@
 		FD0EBE982DACD9E000DECFFA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE972DACD9E000DECFFA /* FirebaseAuth */; };
 		FD0EBE9A2DACD9E000DECFFA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE992DACD9E000DECFFA /* FirebaseFirestore */; };
 		FD0EBE9C2DACD9E000DECFFA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE9B2DACD9E000DECFFA /* FirebaseStorage */; };
+		FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */; };
 		FDA652F92DA8F8B6004384D3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FDA652F82DA8F8B6004384D3 /* .gitignore */; };
 		FDDD7ABE2DAD4E660040A415 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FDDD7ABD2DAD4E660040A415 /* GoogleSignInSwift */; };
-		FDDD7AC02DAD4F250040A415 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDDD7ABF2DAD4F250040A415 /* GoogleService-Info.plist */; };
 		FDDD7AC82DAD55790040A415 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FDDD7AC72DAD55790040A415 /* GoogleSignIn */; };
 /* End PBXBuildFile section */
 
@@ -34,11 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9C745C2D964A670057B77C /* IceMelting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceMelting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9C746C2D964A690057B77C /* IceMeltingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceMeltingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9C74762D964A690057B77C /* IceMeltingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceMeltingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA652F82DA8F8B6004384D3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		FDDD7ABF2DAD4F250040A415 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -110,8 +110,8 @@
 				FD9C746F2D964A690057B77C /* IceMeltingTests */,
 				FD9C74792D964A690057B77C /* IceMeltingUITests */,
 				FD9C745D2D964A670057B77C /* Products */,
-				FDDD7ABF2DAD4F250040A415 /* GoogleService-Info.plist */,
 				FDDD7AC62DAD55790040A415 /* Frameworks */,
+				FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDA652F92DA8F8B6004384D3 /* .gitignore in Resources */,
-				FDDD7AC02DAD4F250040A415 /* GoogleService-Info.plist in Resources */,
+				FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
