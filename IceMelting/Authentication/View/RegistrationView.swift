@@ -8,91 +8,80 @@
 import SwiftUI
 import Firebase
 import FirebaseAuth
-import FirebaseStorage
 
 struct RegistrationView: View {
     
-    @StateObject private var viewModel = RegistrationViewModel()
+    @State private var emailText: String = ""
+    @State private var passwordText: String = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationView {
             ZStack {
                 Color.skinn.ignoresSafeArea()
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 5) {
+                    VStack(spacing: 20) {
                         
-                        // TODO: Register with Google
                         Button {
                             
                         } label: {
-                            
+                            Image(systemName: "person.fill")
+                                .font(.system(size: 64))
+                                .padding()
                         }
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-                    }
-                    
-                    // TODO: Register with Facebook
-                    
-                    Button {
                         
-                    } label: {
-                        Text("Login with Facebook")
-                    }
-                    
-                    
-                    Text("Email")
-                    TextField("Enter your email", text: $viewModel.emailText)
-                        .keyboardType(.emailAddress)
-                        .textInputAutocapitalization(.none)
-                        .padding(15)
-                        .frame(height: 50, alignment: .center)
-                        .foregroundColor(.white)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8).opacity(0.8)
-                                .foregroundStyle(Color.white)
-                        }
-                    
-                    Text("Password")
-                    SecureField("Enter your password", text: $viewModel.passwordText)
-                        .padding(15)
-                        .frame(height: 50, alignment: .center)
-                        .foregroundColor(.white)
-                        .background {
-                            RoundedRectangle(cornerRadius: 8).opacity(0.8)
-                                .foregroundStyle(Color.white)
-                        }
-                    
-                    Button {
-                        viewModel.userRegister()
-                    } label: {
-                        Text("Register")
+                        TextField("Email", text: $emailText)
+                            .keyboardType(.emailAddress)
+                            .textInputAutocapitalization(.none)
                             .padding(15)
-                            .frame(maxWidth: .infinity)
+                            .frame(height: 50, alignment: .center)
                             .foregroundColor(.white)
                             .background {
                                 RoundedRectangle(cornerRadius: 16).opacity(0.8)
                                     .foregroundStyle(Color.gray.opacity(0.5))
                             }
+                        SecureField("Password", text: $passwordText)
+                            .padding(15)
+                            .frame(height: 50, alignment: .center)
+                            .foregroundColor(.white)
+                            .background {
+                                RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                                    .foregroundStyle(Color.gray.opacity(0.5))
+                            }
+                        
+                        Button {
+                            userRegister()
+                        } label: {
+                            Text("Register")
+                                .padding(15)
+                                .frame(maxWidth: .infinity)
+                                .foregroundColor(.white)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                                        .foregroundStyle(Color.gray.opacity(0.5))
+                                }
+                        }
+                        
                     }
-                    
+                    .padding()
                 }
-                .padding()
             }
-        }
-        .navigationTitle("Welcome to IceMelting")
-        .alert("Registration Error", isPresented: $viewModel.showAlert) {
-            Button("OK", role: .cancel) { }
-        } message: {
-            Text(viewModel.errorMessage)
-        }
-        .fullScreenCover(isPresented: $viewModel.showImagePicker, onDismiss: nil) {
-            ImagePicker(image: $viewModel.image)
+            .navigationTitle("Welcome to IceMelting")
         }
     }
+    
+    private func userRegister() {
+        Auth.auth().createUser(withEmail: emailText, password: passwordText) { result, error in
+            if let error = error {
+                print("Failed", error)
+                return
+            }
+            print("Success!!")
+        }
+        
+    }
 }
-
 
 #Preview {
     RegistrationView()

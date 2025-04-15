@@ -15,7 +15,7 @@ struct IceMeltingApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                AppLoadingPage()
+                RegistrationView()
             }
         }
     }
