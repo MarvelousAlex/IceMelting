@@ -1,58 +1,44 @@
 //
-//  AuthenticationView.swift
+//  RegisterView.swift
 //  IceMelting
 //
-//  Created by Wendy Zhou on 15/4/2025.
+//  Created by Wendy Zhou on 16/4/2025.
 //
 
 import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
 
-struct AuthenticationView: View {
+struct RegisterView: View {
     
     @StateObject private var AuthVM = AuthenticationViewModel()
     @StateObject private var EmailVM = SignInEmailViewModel()
     @Binding var showSignInView: Bool
+    @State private var isChecked: Bool = false
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                Color.skinn.ignoresSafeArea()
-                VStack(spacing: 30) {
-                    Text("Welcome")
-                        .font(.custom("K2D-Bold", size: 25))
-                        .foregroundStyle(Color.black)
-                        .frame(maxWidth: .infinity)
-                    
-                    GoogleSignInButton
-                    
-                    Spacer()
-                    
-                    // Divider with "Or login with email"
-                    DividerWithMsg
-                    
-                    // Email SignIn Field
-                    EmailSignIn
-                    
-                    Spacer()
-                    HStack {
-                        Text("🤔Don't have an account?")
-                            .font(.custom("K2D-Regular", size: 14))
-                            .underline()
-                        
-                        NavigationLink {
-                            RegisterView(showSignInView: $showSignInView)
-                        } label: {
-                            Text("Register here👉🏻")
-                                .font(.custom("K2D-SemiBold", size: 14))
-                        }
-                    }
+        ZStack {
+            Color.skinn.ignoresSafeArea()
+            VStack(spacing: 30) {
+                Text("Welcome")
+                    .font(.custom("K2D-Bold", size: 25))
                     .foregroundStyle(Color.black)
-
-                    // SignIn button
-                    SignInButton
-                }
+                    .frame(maxWidth: .infinity)
+                
+                GoogleSignInButton
+                
+                Spacer()
+                
+                // Divider with "Or register with email"
+                DividerWithMsg
+                
+                EmailSignIn
+                
+                Spacer()
+                
+                SignUpButton
+                    .animation(.spring(), value: isChecked)
+                
             }
         }
     }
@@ -60,11 +46,11 @@ struct AuthenticationView: View {
 
 #Preview {
     NavigationStack {
-        AuthenticationView(showSignInView: .constant(false))
+        RegisterView(showSignInView: .constant(false))
     }
 }
 
-extension AuthenticationView {
+extension RegisterView {
     private var GoogleSignInButton: some View {
         Button {
             Task {
@@ -97,7 +83,7 @@ extension AuthenticationView {
             Rectangle()
                 .frame(width: 85, height: 1)
                 .offset(x: -10)
-            Text("Or login in with email")
+            Text("Or register with email")
                 .foregroundStyle(Color.black)
             Rectangle()
                 .frame(width: 85, height: 1)
@@ -108,6 +94,15 @@ extension AuthenticationView {
     
     private var EmailSignIn: some View {
         VStack(alignment: .leading, spacing: 10) {
+            Text("Name")
+                .font(.custom("K2D-SemiBold", size: 16))
+                .foregroundStyle(Color.black)
+                .frame(alignment: .leading)
+            TextField("Enter your name", text: $EmailVM.name)
+                .padding()
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+            
             Text("Email")
                 .font(.custom("K2D-SemiBold", size: 16))
                 .foregroundStyle(Color.black)
@@ -116,27 +111,26 @@ extension AuthenticationView {
                 .padding()
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
-            Spacer().frame(height: 10)
             Text("Password")
                 .font(.custom("K2D-SemiBold", size: 16))
-                .foregroundStyle(Color.black)
             SecureField("Enter your password", text: $EmailVM.password)
                 .padding()
                 .background(Color.white)
                 .clipShape(RoundedRectangle(cornerRadius: 15))
-            Text("Forget Password🤔")
+            
+            Toggle("I accept and agree to comply with terms and condition and Privacy Policy", isOn: $isChecked)
+                .toggleStyle(.checkbox)
                 .font(.custom("K2D-SemiBold", size: 14))
-                .foregroundStyle(Color.black)
                 .underline()
         }
         .frame(width: 360)
     }
     
-    private var SignInButton: some View {
+    private var SignUpButton: some View {
         Button {
             Task {
                 do {
-                    try await EmailVM.signIn() // also sign up is there 😍
+                    try await EmailVM.signUp()
                     showSignInView = false
                     return
                 } catch {
@@ -144,7 +138,7 @@ extension AuthenticationView {
                 }
                 
                 do {
-                    try await EmailVM.signIn()
+                    try await EmailVM.signUp()
                     showSignInView = false
                     return
                 } catch {
@@ -152,13 +146,13 @@ extension AuthenticationView {
                 }
             }
         } label: {
-            Text("Login")
+            Text("Register")
                 .font(.headline)
                 .foregroundStyle(Color.white)
                 .background {
                     RoundedRectangle(cornerRadius: 99)
                         .frame(width: 360, height: 60)
-                        .foregroundStyle(!EmailVM.email.isEmpty && !EmailVM.password.isEmpty ? Color.black : Color.gray.opacity(0.7))
+                        .foregroundStyle(isChecked ? Color.black : Color.gray.opacity(0.7))
                 }
         }
     }

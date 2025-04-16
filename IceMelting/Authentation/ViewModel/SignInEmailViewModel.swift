@@ -10,6 +10,7 @@ import SwiftUI
 final class SignInEmailViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
+    @Published var name = ""
     
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else {
@@ -17,7 +18,7 @@ final class SignInEmailViewModel: ObservableObject {
             return
         }
         
-        let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password)
+        let returnedUserData = try await AuthenticationManager.shared.createUser(email: email, password: password, name: name)
     }
     
     func signIn() async throws {

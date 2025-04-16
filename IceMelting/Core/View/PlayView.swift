@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct PlayView: View {
-    @State private var selectedTab = 0
+    @State private var selectedTab = 1
     
     var body: some View {
         ZStack {
             switch selectedTab {
-            case 0: MatchView()
-            case 1: InsightView()
-            case 2: MessageView()
+            case 0: ProfileView()
+            case 1: MatchView()
+            case 2: InsightView()
+            case 3: MessageView()
             default: ProfileView()
             }
             

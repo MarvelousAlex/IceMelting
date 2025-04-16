@@ -8,18 +8,6 @@
 import Foundation
 import FirebaseAuth
 
-struct AuthDataResultModel {
-    let uid: String
-    let email: String?
-    let photoUrl: String?
-    
-    init(user: User) {
-        self.uid = user.uid
-        self.email = user.email
-        self.photoUrl = user.photoURL?.absoluteString
-    }
-}
-
 enum AuthProvideOption: String {
     case email = "password"
     case google = "google.com"
@@ -54,7 +42,7 @@ final class AuthenticationManager {
     }
     
     func signOut() throws {
-       try Auth.auth().signOut()
+        try Auth.auth().signOut()
     }
     
 }
@@ -62,8 +50,14 @@ final class AuthenticationManager {
 // MARK: - Sign in Email methods
 extension AuthenticationManager {
     @discardableResult
-    func createUser(email: String, password: String) async throws -> AuthDataResultModel {
+    func createUser(email: String, password: String, name: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: email, password: password)
+        let user = authDataResult.user
+        
+        let changeRequest = user.createProfileChangeRequest()
+        changeRequest.displayName = name
+        try await changeRequest.commitChanges()
+        
         return AuthDataResultModel(user: authDataResult.user)
     }
     
