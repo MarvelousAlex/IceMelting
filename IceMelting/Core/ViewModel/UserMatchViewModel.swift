@@ -11,14 +11,14 @@ import Combine
 /// The view model responsible for matching user profiles.
 final class UserMatchViewModel: ObservableObject {
     // The current user profile (for whom we want to find matches)
-    @Published var currentUser: UserProfile? {
+    @Published var currentUser: Users? {
         didSet {
             computeMatchResults()
         }
     }
     
     // A list of potential user profiles that could match with the current user.
-    @Published var potentialMatches: [UserProfile] = [] {
+    @Published var potentialMatches: [Users] = [] {
         didSet {
             computeMatchResults()
         }
@@ -30,7 +30,7 @@ final class UserMatchViewModel: ObservableObject {
     /// Struct representing the match result for a given user.
     struct MatchResult: Identifiable {
         let id = UUID()
-        let user: UserProfile
+        let user: Users
         let matchPercentage: Double
     }
     
@@ -53,17 +53,17 @@ final class UserMatchViewModel: ObservableObject {
     // MARK: - Methods for Modifying Data
     
     /// Adds a new potential match and recomputes match results.
-    func addPotentialMatch(_ profile: UserProfile) {
+    func addPotentialMatch(_ profile: Users) {
         potentialMatches.append(profile)
     }
     
     /// Updates the current user and automatically triggers re-evaluation of match results.
-    func updateCurrentUser(_ profile: UserProfile) {
+    func updateCurrentUser(_ profile: Users) {
         currentUser = profile
     }
     
     /// Replace the entire list of potential matches and recomputes match results.
-    func updatePotentialMatches(_ profiles: [UserProfile]) {
+    func updatePotentialMatches(_ profiles: [Users]) {
         potentialMatches = profiles
     }
     

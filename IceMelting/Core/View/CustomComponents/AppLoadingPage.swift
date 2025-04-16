@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppLoadingPage: View {
+    
     @State private var goToAppEgg = false
 
     var body: some View {
