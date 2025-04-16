@@ -19,9 +19,10 @@ struct PlayView: View {
             case 3: MessageView()
             default: ProfileView()
             }
-            
-            CustomTabBar(selectedTab: $selectedTab)
-                .padding(.top, 700)
+            VStack {
+                CustomTabBar(selectedTab: $selectedTab)
+                    .offset(y: 370)
+            }
         }
         .navigationBarBackButtonHidden()
 //        .ignoresSafeArea()

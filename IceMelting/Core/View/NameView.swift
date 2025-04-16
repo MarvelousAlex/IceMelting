@@ -27,22 +27,25 @@ struct NameView: View {
                     
                     TextField("", text: $TheName)
                         .padding(.horizontal, 15)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.white)
                         .frame(width: 360, height: 60)
                         .background{
                             RoundedRectangle(cornerRadius: 60)
+                                .foregroundStyle(Color.yesOrNo)
                         }
                         .padding(.horizontal)
-                    Spacer().frame(height: 20)
-                    if TheName.isEmpty {
-                        SendLabel
-                    } else {
-                        NavigationLink {
-                            QuestionView1()
-                        } label: {
+//                    Spacer().frame(height: 400)
+                    Group {
+                        if TheName.isEmpty {
                             SendLabel
+                        } else {
+                            NavigationLink {
+                                QuestionView1()
+                            } label: {
+                                SendLabel
+                            }
                         }
-                    }
+                    }.offset(y: 300)
                         
                 }
             }
