@@ -22,6 +22,7 @@ struct MatchView: View {
                     CodeEnterSpace.offset(y: 100)
                 }
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }

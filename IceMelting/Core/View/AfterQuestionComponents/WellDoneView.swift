@@ -40,6 +40,19 @@ struct WellDoneView: View {
                     
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        MatchView()
+                    } label: {
+                        Text("Leave")
+                            .foregroundStyle(Color.black)
+                            .font(.custom("K2D-SemiBold", size: 14))
+                            .padding(.trailing, 10)
+                    }
+
+                }
+            }
         }
     }
 }
