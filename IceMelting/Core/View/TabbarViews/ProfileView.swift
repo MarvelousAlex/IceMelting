@@ -6,11 +6,50 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ProfileView: View {
+    @State private var selectedSport: String = "Badminton"
+    @Environment(\.dismiss) private var dismiss
+    private let sports = ["Badminton", "Basketball", "Tennis", "Swimming", "Baseball", "Volleyball"]
+    
     var body: some View {
-        VStack {
-            
+        ZStack {
+            Color.skinn.ignoresSafeArea()
+            //            Image("") ???
+            VStack(alignment: .leading) {
+                Text("Hi, Wendy")
+                    .font(.custom("Nunito-SemiBold", size: 30))
+                Text("Make your own profile here")
+                    .font(.custom("Nunito-SemiBold", size: 18))
+                HStack {
+                    Text("My hobby is:")
+                    Picker("Select your favorite sport", selection: $selectedSport) {
+                        ForEach(sports, id: \.self) { sport in
+                            Text(sport)
+                        }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .padding()
+                }
+                
+                Button(action: {
+                    do {
+                        try Auth.auth().signOut()
+                    } catch let error as NSError {
+                        print("Error signing out: \(error.localizedDescription)")
+                    }
+                }) {
+                    Text("Log Out")
+                        .font(.custom("K2D-SemiBold", size: 20))
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.littleBlue)
+                        .foregroundColor(.white)
+                        .cornerRadius(16)
+                }
+            }
+            .padding()
         }
     }
 }

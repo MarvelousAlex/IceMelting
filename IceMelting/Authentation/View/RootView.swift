@@ -26,6 +26,13 @@ struct RootView: View {
         .fullScreenCover(isPresented: $showSingInView) {
             NavigationStack {
                 AuthenticationView(showSignInView: $showSingInView)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button("Skip") {
+                                showSingInView = false
+                            }
+                        }
+                    }
             }
         }
     }
