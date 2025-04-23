@@ -6,64 +6,84 @@
 //
 
 import SwiftUI
+import UIKit
+
+private let assetColorNames = [
+    "ShineRed", "LittleBlue", "ArmyGreen", "pinkk", "mint", "blue", "VioPurple", "YesOrNo"
+]
 
 struct UserRowView: View {
+    
+    @State private var isInvited: Bool = false
     let user: Users
-
+    private var assetColors: [Color] {
+        assetColorNames.map { Color($0) }
+    }
+    
     var body: some View {
-            VStack(spacing: 10) {
-                HStack {
-                    Text(user.name)
-                        .font(.custom("K2D-SemiBold", size: 35))
-                    Spacer()
-                    Text(" \(Int(user.MatchRate * 100))% Match")
-                        .font(.custom("K2D-SemiBold", size: 35))
-                        .foregroundStyle(Color.shineRed)
-                }
-                .padding(.horizontal, 20)
-                
-                HStack(spacing: 6) {
-                    ForEach(user.Preference, id: \.self) { pref in
+        VStack(spacing: 5) {
+            HStack {
+                Text(user.name)
+                    .font(.custom("K2D-SemiBold", size: 30))
+                    .foregroundStyle(Color.black)
+                Spacer()
+                Text(" \(Int(user.MatchRate * 100))% Match")
+                    .font(.custom("K2D-SemiBold", size: 30))
+                    .foregroundStyle(Color.shineRed)
+            }
+            .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(Array(user.Preference.enumerated()), id: \.element) { index, pref in
                         Text(pref)
-                            .frame(alignment: .leading)
-                            .padding(4)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 4)
-                                    .stroke(lineWidth: 1)
+                            .font(.custom("Nunito-Semibold", size: 20))
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(assetColors[index % assetColors.count])
+                                    .opacity(0.7)
                             )
                     }
-                    Spacer()
                 }
-                .padding(.horizontal, 20)
-                
-                HStack {
-                    NavigationLink {
-                        
-                    } label: {
-                        Text("View Profile")
-                            .foregroundStyle(Color.black)
-                        
-                    }
-                    
-                    NavigationLink {
-                        
-                    } label: {
-                        Text("Invite")
-                            .foregroundStyle(Color.black)
-                        
-                    }
-                }
-                .padding(.horizontal, 20)
-                .frame(height: 50)
-                .background {
-                    RoundedRectangle(cornerRadius: 16)
-                        .foregroundStyle(Color.skinYellow)
-                }
+                .frame(height: 60)
             }
-            .background(Color.skinn)
-            .cornerRadius(16)
-            .padding(.horizontal, 10)
-    }
+            
+            HStack(spacing: 0) {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(isInvited ? Color.shineRed : Color.skinYellow)
+                    .overlay {
+                        Button {
+                            isInvited.toggle()
+                        } label: {
+                            Text(isInvited ? "Invited!" : "Invite")
+                                .font(.custom("K2D-SemiBold", size: 20))
+                                .foregroundStyle(Color.black)
+                        }
+                        
+                    }
+                    .animation(.spring(duration: 0.8), value: isInvited)
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(Color.skinYellow)
+                    .overlay {
+                        NavigationLink {
+                            
+                        } label: {
+                            Text("View Profile")
+                                .font(.custom("K2D-SemiBold", size: 20))
+                                .foregroundStyle(Color.black)
+                        }
+                        
+                    }
+                
+            }
+            .frame(height: 50)
+        }
+        .background(Color.matchCard)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
+        .padding(.horizontal, 10)
+    }        
 }
 
 struct UserRowView_Previews: PreviewProvider {
@@ -71,9 +91,8 @@ struct UserRowView_Previews: PreviewProvider {
         UserRowView(user: Users(
             name: "Wendy",
             MatchRate: 0.42,
-            Preference: ["SwiftUI", "iOS"]
+            Preference: ["SwiftUI", "iOS", "Design", "Data Analytics", "SwiftUI", "iOS"]
         ))
-        .previewLayout(.sizeThatFits)
     }
 }
 

@@ -8,22 +8,37 @@
 import SwiftUI
 
 struct UserListView: View {
+    
     @StateObject private var viewModel = UsersViewModel()
-
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(viewModel.usersList, id: \.name) { user in
-                    UserRowView(user: user)
+        NavigationStack {
+            ZStack {
+                Color.skinn.ignoresSafeArea()
+                ScrollView {
+                    ForEach(viewModel.usersList) { user in
+                        UserRowView(user: user)
+                        Spacer().frame(height: 10)
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Text("Your Matches")
+                            .foregroundStyle(Color.black)
+                            .font(.custom("K2D-Bold", size: 40))
+                    }
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Text("Questions")
+                            .foregroundStyle(Color.black)
+                            .font(.custom("K2D-Bold", size: 15))
+                    }
                 }
             }
-            .navigationTitle("Users")
+            .navigationBarBackButtonHidden()
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserListView()
-    }
+#Preview {
+    UserListView()
 }

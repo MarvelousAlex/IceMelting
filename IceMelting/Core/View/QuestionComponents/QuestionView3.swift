@@ -41,15 +41,13 @@ struct QuestionView3: View {
                         .background {
                             Image("QuestionBubble")
                         }
-                        
-                    
+                
                     HD_Option
                     D_Option
                     C_Option
                     Pass_Option
                     
                 }
-//                .background(Color.red)
                 
                 SendLabel
                     .padding(.top, 700)

@@ -128,7 +128,7 @@ extension QuestionView2 {
     
     private var SendButton: some View {
         NavigationStack {
-            NavigationLink(destination: SumView2()) {
+            NavigationLink(destination: GreatAnswerView2()) {
                 SendLabel
             }
             .disabled(!(isTappedYes || isTappedNo))

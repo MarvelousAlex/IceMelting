@@ -51,10 +51,8 @@ struct QuestionView1: View {
                         .background {
                             RoundedRectangle(cornerRadius: 60)
                                 .opacity(0.1)
-                            // .foregroundStyle(Color.textBox)
-//                                .opacity(0.5)
                         }
-                } // answer box
+                }
                 .padding(.top, 500)
                 
                 if TheAns.isEmpty {
@@ -62,14 +60,12 @@ struct QuestionView1: View {
                         .padding(.top, 700)
                 } else {
                     NavigationLink {
-                        SumView1()
+                        GreatAnswerView()
                     } label: {
                         SendLabel
                     }
                     .padding(.top, 700)
-                } // send button
-                
-                
+                }
             }
             .navigationBarBackButtonHidden()
         }
