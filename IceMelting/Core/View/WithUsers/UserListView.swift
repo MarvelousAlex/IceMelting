@@ -21,6 +21,7 @@ struct UserListView: View {
                         Spacer().frame(height: 10)
                     }
                 }
+                .scrollIndicators(.hidden)
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Text("Your Matches")

@@ -10,16 +10,30 @@ import SwiftUI
 struct SumQuestionView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var viewModel = QuestionViewModel()
+    @State private var getOpacity: Double = 0.0
+    @State private var offsetValue: Double = 300.0
     
     var body: some View {
-        ZStack {
-            Color.skinn.ignoresSafeArea()
-            ScrollView(.vertical, showsIndicators: false) {
-                Text("What do you study?")
-                Text("Do you have a job or internship during study?")
-                Text("What is your expectation to the class?")
+        NavigationStack {
+            ZStack {
+                Color.skinn.ignoresSafeArea()
+                VStack(alignment: .leading, spacing: 20) {
+                    ForEach(viewModel.questionsList) { question in
+                            QuestionsRowView(question: question)
+                            .opacity(getOpacity)
+                            .offset(y: offsetValue)
+                            .onAppear {
+                                withAnimation(.spring(duration: 5)) {
+                                    getOpacity = 1
+                                    offsetValue = 0
+                                }
+                            }
+                    }
+                    Spacer()
+                }
+                .padding()
             }
-            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
@@ -34,6 +48,7 @@ struct SumQuestionView: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
@@ -41,3 +56,4 @@ struct SumQuestionView: View {
 #Preview {
     SumQuestionView()
 }
+
