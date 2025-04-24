@@ -24,6 +24,7 @@ struct ProfileView: View {
                     .font(.custom("Nunito-SemiBold", size: 18))
                 HStack {
                     Text("My hobby is:")
+                        .foregroundStyle(Color.black)
                     Picker("Select your favorite sport", selection: $selectedSport) {
                         ForEach(sports, id: \.self) { sport in
                             Text(sport)
@@ -32,6 +33,9 @@ struct ProfileView: View {
                     .pickerStyle(MenuPickerStyle())
                     .padding()
                 }
+               
+                
+                Spacer()
                 
                 Button(action: {
                     do {

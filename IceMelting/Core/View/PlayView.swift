@@ -16,7 +16,7 @@ struct PlayView: View {
             case 0: ProfileView()
             case 1: MatchView()
             case 2: InsightView()
-            case 3: MessageView()
+            case 3: ChatView()
             default: ProfileView()
             }
             VStack {
