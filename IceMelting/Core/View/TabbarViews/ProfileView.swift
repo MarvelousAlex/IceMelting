@@ -9,8 +9,10 @@ import SwiftUI
 import FirebaseAuth
 
 struct ProfileView: View {
+    
     @State private var selectedSport: String = "Badminton"
-    @Environment(\.dismiss) private var dismiss
+//    @StateObject private var vm = SettingsViewModel()
+    @EnvironmentObject var sessionStore: SessionStore
     private let sports = ["Badminton", "Basketball", "Tennis", "Swimming", "Baseball", "Volleyball"]
     
     var body: some View {
@@ -37,13 +39,9 @@ struct ProfileView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    do {
-                        try Auth.auth().signOut()
-                    } catch let error as NSError {
-                        print("Error signing out: \(error.localizedDescription)")
-                    }
-                }) {
+                Button {
+                   sessionStore.signOut()
+                } label: {
                     Text("Log Out")
                         .font(.custom("K2D-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)

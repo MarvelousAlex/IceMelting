@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlayView: View {
     @State private var selectedTab = 1
+//    @Binding var showSignInView: Bool
     
     var body: some View {
         ZStack {
