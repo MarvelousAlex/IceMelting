@@ -65,7 +65,6 @@
 		FD90377E2DBB4F7200ECC559 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90377D2DBB4F7200ECC559 /* AuthViewModel.swift */; };
 		FD9037842DBB4F9D00ECC559 /* GoogleSignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037802DBB4F9D00ECC559 /* GoogleSignInButton.swift */; };
 		FD9037852DBB4F9D00ECC559 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037812DBB4F9D00ECC559 /* RegistrationView.swift */; };
-		FD9037862DBB4F9D00ECC559 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037832DBB4F9D00ECC559 /* WelcomeView.swift */; };
 		FD9037872DBB4F9D00ECC559 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037822DBB4F9D00ECC559 /* RootView.swift */; };
 		FD9037882DBB4F9D00ECC559 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90377F2DBB4F9D00ECC559 /* AuthenticationView.swift */; };
 		FD90378A2DBB64F600ECC559 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037892DBB64F600ECC559 /* SignInEmailView.swift */; };
@@ -150,7 +149,6 @@
 		FD9037802DBB4F9D00ECC559 /* GoogleSignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInButton.swift; sourceTree = "<group>"; };
 		FD9037812DBB4F9D00ECC559 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		FD9037822DBB4F9D00ECC559 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		FD9037832DBB4F9D00ECC559 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		FD9037892DBB64F600ECC559 /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		FD9C745C2D964A670057B77C /* IceMelting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IceMelting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9C746C2D964A690057B77C /* IceMeltingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceMeltingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,7 +215,6 @@
 				FD9037802DBB4F9D00ECC559 /* GoogleSignInButton.swift */,
 				FD9037812DBB4F9D00ECC559 /* RegistrationView.swift */,
 				FD9037822DBB4F9D00ECC559 /* RootView.swift */,
-				FD9037832DBB4F9D00ECC559 /* WelcomeView.swift */,
 				FD9037892DBB64F600ECC559 /* SignInEmailView.swift */,
 			);
 			path = View;
@@ -370,13 +367,6 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		FD9036A82DBA6A5400ECC559 /* OpeningComponents */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OpeningComponents;
-			sourceTree = "<group>";
-		};
 		FD9036AA2DBA6A5400ECC559 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,7 +390,6 @@
 				FD90369D2DBA6A5400ECC559 /* Core */,
 				FD90369F2DBA6A5400ECC559 /* Extension */,
 				FD9036A72DBA6A5400ECC559 /* Font */,
-				FD9036A82DBA6A5400ECC559 /* OpeningComponents */,
 				FD9036AA2DBA6A5400ECC559 /* Preview Content */,
 				FD9036AC2DBA6A5400ECC559 /* Utilities */,
 				FD9036AD2DBA6A5400ECC559 /* Assets.xcassets */,
@@ -640,7 +629,6 @@
 				FD90377C2DBB4A3800ECC559 /* SessionStore.swift in Sources */,
 				FD9037842DBB4F9D00ECC559 /* GoogleSignInButton.swift in Sources */,
 				FD9037852DBB4F9D00ECC559 /* RegistrationView.swift in Sources */,
-				FD9037862DBB4F9D00ECC559 /* WelcomeView.swift in Sources */,
 				FD9037872DBB4F9D00ECC559 /* RootView.swift in Sources */,
 				FD9037882DBB4F9D00ECC559 /* AuthenticationView.swift in Sources */,
 				FD9036D22DBA6A5400ECC559 /* ChatView.swift in Sources */,

@@ -17,7 +17,7 @@ struct RootView: View {
                 AppLoadingPage()
                     .environmentObject(sessionStore)
             } else {
-                WelcomeView()
+                AuthenticationView()
                     .environmentObject(sessionStore)
             }
         }
