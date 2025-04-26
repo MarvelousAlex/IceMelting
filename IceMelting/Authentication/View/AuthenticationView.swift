@@ -50,68 +50,13 @@ struct AuthenticationView: View {
                             .foregroundStyle(Color.black)
                             .frame(maxWidth: .infinity)
                         
-                        
-                        // Google Login Button using Swift concurrency.
-                        Button {
-                            Task {
-                                do {
-                                    try await authVM.signInGoogle()
-                                    // If successful, navigate to MainView.
-                                    showMainView = true
-                                } catch {
-                                    print("Google sign in failed: \(error.localizedDescription)")
-                                }
-                            }
-                        } label: {
-                            HStack(spacing: 15) {
-                                Image("Google-cloud")
-                                    .resizable()
-                                    .frame(width: 60, height: 60)
-                                Text("Login with Google")
-                                    .font(.custom("K2D-Bold", size: 18))
-                                    .foregroundStyle(Color.white)
-                            }
-                            .background {
-                                RoundedRectangle(cornerRadius: 99)
-                                    .frame(width: 360, height: 60)
-                                    .foregroundStyle(Color.black)
-                            }
-                        }
+                        // MARK: Google Login Button using Swift concurrency.
+                        GoogleLoginButton
                         
                         DividerWithMsg
                         
-                        VStack(alignment: .leading) {
-                            Text("Email")
-                                .foregroundStyle(Color.black)
-                                .font(.custom("K2D-Regular", size: 15))
-                            
-                            // Email Login Button (navigates to email sign-in screen).
-                            TextField("Enter your email", text: $email)
-                                .keyboardType(.emailAddress)
-                                .textInputAutocapitalization(.none)
-                                .padding(15)
-                                .frame(height: 50, alignment: .center)
-                                .foregroundColor(.black)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 16).opacity(0.8)
-                                        .foregroundStyle(Color.white)
-                                }
-                            
-                            Spacer().frame(height: 10)
-                            
-                            Text("Password")
-                                .foregroundStyle(Color.black)
-                                .font(.custom("K2D-Regular", size: 15))
-                            
-                            SecureField("Enter your password", text: $password)
-                                .padding(15)
-                                .frame(height: 50, alignment: .center)
-                                .foregroundColor(.black)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 16).opacity(0.8)
-                                        .foregroundStyle(Color.white)
-                                }
-                        }
+                        // MARK: Login text Fields
+                        LoginTextFields
                         
                         if let errorMessage = errorMessage {
                             Text(errorMessage)
@@ -119,44 +64,13 @@ struct AuthenticationView: View {
                                 .multilineTextAlignment(.center)
                         }
                         
-                        NavigationLink {
-                            RegistrationView()
-                        } label: {
-                            HStack {
-                                Text("Don't have an account?")
-                                Text("Register here")
-                                    .underline()
-                            }
-                            .font(.custom("K2D-Bold", size: 15))
-                            .foregroundStyle(Color.black)
-                        }
+                        Spacer().frame(height: 270)
                         
+                        // MARK: Navigation to RegistrationView
+                        supportingNav
                         
-                        
-                        Button(action: {
-                            signIn()
-                        }) {
-                            if isLoading {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
-                                    .frame(maxWidth: .infinity)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .cornerRadius(8)
-                            } else {
-                                Text("Login")
-                                    .padding(15)
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundColor(.white)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 16).opacity(0.8)
-                                            .foregroundStyle(Color.black)
-                                    }
-                            }
-                        }
-                        .disabled(isLoading)
-                        
-                        Spacer()
+                        // MARK: Login Button
+                        LoginButton
                     }
                     .padding()
                 }
@@ -177,6 +91,7 @@ struct AuthenticationView_Previews: PreviewProvider {
 }
 
 extension AuthenticationView {
+    
     private var DividerWithMsg: some View {
         HStack {
             Rectangle()
@@ -191,4 +106,109 @@ extension AuthenticationView {
         }
         .frame(width: 360)
     }
+    
+    private var GoogleLoginButton: some View {
+        Button {
+            Task {
+                do {
+                    try await authVM.signInGoogle()
+                    // If successful, navigate to MainView.
+                    showMainView = true
+                } catch {
+                    print("Google sign in failed: \(error.localizedDescription)")
+                }
+            }
+        } label: {
+            HStack(spacing: 15) {
+                Image("Google-cloud")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                Text("Login with Google")
+                    .font(.custom("K2D-Bold", size: 18))
+                    .foregroundStyle(Color.white)
+            }
+            .background {
+                RoundedRectangle(cornerRadius: 99)
+                    .frame(width: 360, height: 60)
+                    .foregroundStyle(Color.black)
+            }
+        }
+    }
+    
+    private var LoginTextFields: some View {
+        VStack(alignment: .leading) {
+            Text("Email")
+                .foregroundStyle(Color.black)
+                .font(.custom("K2D-Regular", size: 15))
+            
+            TextField("Enter your email", text: $email)
+                .keyboardType(.emailAddress)
+                .textInputAutocapitalization(.none)
+                .padding(15)
+                .frame(height: 50, alignment: .center)
+                .foregroundColor(.black)
+                .background {
+                    RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                        .foregroundStyle(Color.white)
+                }
+            
+            Spacer().frame(height: 10)
+            
+            Text("Password")
+                .foregroundStyle(Color.black)
+                .font(.custom("K2D-Regular", size: 15))
+            
+            SecureField("Enter your password", text: $password)
+                .padding(15)
+                .frame(height: 50, alignment: .center)
+                .foregroundColor(.black)
+                .background {
+                    RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                        .foregroundStyle(Color.white)
+                }
+            
+            Text("Forget password?")
+                .font(.custom("K2D-Bold", size: 10))
+        }
+    }
+    
+    private var supportingNav: some View {
+        NavigationLink {
+            RegistrationView()
+        } label: {
+            HStack {
+                Text("Don't have an account?")
+                Text("Register here")
+                    .underline()
+            }
+            .font(.custom("K2D-Bold", size: 15))
+            .foregroundStyle(Color.black)
+        }
+    }
+    
+    private var LoginButton: some View {
+        Button(action: {
+            signIn()
+        }) {
+            if isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            } else {
+                Text("Login")
+                    .padding(15)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background {
+                        RoundedRectangle(cornerRadius: 16).opacity(0.8)
+                            .foregroundStyle(Color.black)
+                    }
+            }
+        }
+        .disabled(isLoading)
+    }
+    
 }
