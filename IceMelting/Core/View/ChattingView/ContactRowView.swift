@@ -12,21 +12,11 @@ struct ContactRowView: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(contact.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
-                .overlay(
-                    Circle()
-                        .stroke(contact.hasNewMessages ? Color.red : Color.clear, lineWidth: 2)
-                )
-
             VStack(alignment: .leading, spacing: 4) {
                 Text(contact.name)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.custom("K2D-SemiBold", size: 20))
                 Text(contact.subtitle)
-                    .font(.system(size: 14))
+                    .font(.custom("K2D-SemiBold", size: 14))
                     .foregroundColor(.gray)
             }
 

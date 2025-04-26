@@ -24,12 +24,14 @@ struct ChatDetailView: View {
                     // or you could use environment(\.presentationMode) to dismiss
                 } label: {
                     Image(systemName: "chevron.left")
-                        .font(.title2)
+                        
                 }
                 Text(viewModel.contact.name)
-                    .font(.title2).bold()
+                    
                 Spacer()
             }
+            .font(.custom("K2D-Bold", size: 20))
+            .foregroundStyle(Color.black)
             .padding()
             
             Text("Today")
@@ -63,22 +65,7 @@ struct ChatDetailView: View {
                                     .clipShape(Circle())
                             }
                         }
-                        .overlay(
-                            // timestamp + ticks for sent messages
-                            HStack {
-                                Spacer()
-                                Text(msg.time)
-                                    .font(.caption2)
-                                    .foregroundColor(.gray)
-                                if msg.isCurrentUser {
-                                    Image(systemName: "checkmark")
-                                        .font(.caption2)
-                                        .foregroundColor(.gray)
-                                }
-                            }
-                            .padding(.trailing, msg.isCurrentUser ? 48 : 8),
-                            alignment: msg.isCurrentUser ? .trailing : .leading
-                        )
+                        .font(.custom("K2D-Bold", size: 15))
                         .padding(.horizontal)
                     }
                 }
