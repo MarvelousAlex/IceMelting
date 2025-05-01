@@ -18,6 +18,7 @@ struct UserListView: View {
                 ScrollView {
                     ForEach(viewModel.usersList) { user in
                         UserRowView(user: user)
+                            .padding(10)
                         Spacer().frame(height: 10)
                     }
                 }

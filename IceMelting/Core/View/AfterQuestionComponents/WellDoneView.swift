@@ -40,6 +40,7 @@ struct WellDoneView: View {
                     
                 }
             }
+            .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {

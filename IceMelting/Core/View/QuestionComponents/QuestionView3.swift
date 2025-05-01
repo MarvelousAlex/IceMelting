@@ -42,10 +42,13 @@ struct QuestionView3: View {
                             Image("QuestionBubble")
                         }
                 
-                    HD_Option
-                    D_Option
-                    C_Option
-                    Pass_Option
+                    Group {
+                        HD_Option
+                        D_Option
+                        C_Option
+                        Pass_Option
+                    }
+                    .foregroundStyle(Color.black)
                     
                 }
                 
@@ -76,7 +79,7 @@ extension QuestionView3 {
     
     private var HD_Option: some View {
         Text("High Distinction")
-            .font(.custom("K2D-Regular", size: 18))
+            .font(.custom("K2D-Regular", size: 20))
             .frame(width: 360, height: 60)
             .background {
                 RoundedRectangle(cornerRadius: 99)
@@ -90,7 +93,7 @@ extension QuestionView3 {
     
     private var D_Option: some View {
         Text("Distinction")
-            .font(.custom("K2D-Regular", size: 18))
+            .font(.custom("K2D-Regular", size: 20))
             .frame(width: 360, height: 60)
             .background {
                 RoundedRectangle(cornerRadius: 99)
@@ -104,7 +107,7 @@ extension QuestionView3 {
     
     private var C_Option: some View {
         Text("Credit")
-            .font(.custom("K2D-Regular", size: 18))
+            .font(.custom("K2D-Regular", size: 20))
             .frame(width: 360, height: 60)
             .background {
                 RoundedRectangle(cornerRadius: 99)
@@ -118,7 +121,7 @@ extension QuestionView3 {
     
     private var Pass_Option: some View {
         Text("Pass")
-            .font(.custom("K2D-Regular", size: 18))
+            .font(.custom("K2D-Regular", size: 20))
             .frame(width: 360, height: 60)
             .background {
                 RoundedRectangle(cornerRadius: 99)

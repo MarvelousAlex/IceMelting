@@ -4,13 +4,12 @@
 //
 //  Created by Wendy Zhou on 28/3/2025.
 //
+// This is also the main view for the app that for the main fnction
 
 import SwiftUI
 
 struct PlayView: View {
     @State private var selectedTab = 1
-//    @Binding var showSignInView: Bool
-    
     var body: some View {
         ZStack {
             switch selectedTab {

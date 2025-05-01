@@ -48,6 +48,7 @@ struct UserRowView: View {
                     }
                 }
                 .frame(height: 60)
+                .padding(.horizontal, 6)
             }
             
             HStack(spacing: 0) {

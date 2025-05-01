@@ -34,7 +34,7 @@ struct NameView: View {
                                 .foregroundStyle(Color.yesOrNo)
                         }
                         .padding(.horizontal)
-//                    Spacer().frame(height: 400)
+                    
                     Group {
                         if TheName.isEmpty {
                             SendLabel

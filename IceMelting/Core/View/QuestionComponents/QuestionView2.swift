@@ -81,14 +81,15 @@ extension QuestionView2 {
             
             Text("Your Answer")
                 .font(.custom("K2D-Bold", size: 25))
+                .foregroundStyle(Color.black)
             HStack(spacing: 10) {
                 RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(isTappedYes ? Color.yesOrNo.opacity(0.5) : Color.yesOrNo)
+                    .foregroundStyle(isTappedYes ? Color.black.opacity(0.6) : Color.yesOrNo)
                     .shadow(radius: 1)
                     .frame(width: 160, height: 160)
                     .overlay {
                         Text("Yes")
-                            .font(.custom("K2D-Regular", size: 25))
+                            .font(.custom("K2D-Bold", size: 25))
                     }
                     .onTapGesture {
                         if isTappedYes {
@@ -103,12 +104,12 @@ extension QuestionView2 {
                     .animation(.spring(duration: 1), value: isTappedYes)
                 
                 RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(isTappedNo ? Color.yesOrNo.opacity(0.5) : Color.yesOrNo)
+                    .foregroundStyle(isTappedNo ? Color.black.opacity(0.6) : Color.yesOrNo)
                     .shadow(radius: 1)
                     .frame(width: 160, height: 160)
                     .overlay {
                         Text("No")
-                            .font(.custom("K2D-Regular", size: 25))
+                            .font(.custom("K2D-Bold", size: 25))
                     }
                     .onTapGesture {
                         if isTappedNo {

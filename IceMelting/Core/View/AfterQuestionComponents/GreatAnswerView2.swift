@@ -25,7 +25,7 @@ struct GreatAnswerView2: View {
             
             VStack(spacing: 20) {
                 Text("Great Answer👍🏻")
-                    .font(.custom("K2D-Bold", size: 30))
+                    .font(.custom("K2D-Bold", size: 45))
                     .foregroundStyle(Color.black)
                     .offset(y: textHight)
                     .opacity(textOpacity)

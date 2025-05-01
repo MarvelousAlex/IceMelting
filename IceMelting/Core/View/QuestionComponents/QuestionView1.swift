@@ -33,6 +33,7 @@ struct QuestionView1: View {
                     
                     Text("What do you study?") // what is your major?
                         .font(.custom("K2D-Bold", size: 30))
+                        .foregroundStyle(Color.black)
                         .background {
                             Image("QuestionBubble")
                         }
@@ -45,12 +46,15 @@ struct QuestionView1: View {
                     
                     Text("Your Answer")
                         .font(.custom("K2D-SemiBold", size: 20))
+                        .foregroundStyle(Color.black)
                     TextField("", text: $TheAns)
                         .padding(.leading, 15)
                         .frame(width: 360, height: 60)
+                        .foregroundStyle(Color.black)
                         .background {
                             RoundedRectangle(cornerRadius: 60)
                                 .opacity(0.1)
+                                .foregroundStyle(Color.black)
                         }
                 }
                 .padding(.top, 500)

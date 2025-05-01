@@ -25,7 +25,7 @@ struct GreatAnswerView3: View {
             
             VStack(spacing: 20) {
                 Text("Great Answer👍🏻")
-                    .font(.custom("K2D-Bold", size: 30))
+                    .font(.custom("K2D-Bold", size: 45))
                     .foregroundStyle(Color.black)
                     .offset(y: textHight)
                     .opacity(textOpacity)
@@ -56,7 +56,7 @@ struct GreatAnswerView3: View {
         }
         // Hidden NavigationLink that triggers when navigateToQuestionView2 becomes true:
         .navigationDestination(isPresented: $navigateToQuestionView2) {
-//            QuestionView3()
+            WellDoneView() 
         }
     }
 }
