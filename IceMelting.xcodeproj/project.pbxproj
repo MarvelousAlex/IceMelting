@@ -10,6 +10,8 @@
 		FD09D7C32DC765890047B141 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C22DC765890047B141 /* UserDetailView.swift */; };
 		FD09D7C52DC76DBC0047B141 /* MatchKanBan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C42DC76DBC0047B141 /* MatchKanBan.swift */; };
 		FD09D7C72DC779EE0047B141 /* IceBreakingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */; };
+		FD09D7C92DC7903B0047B141 /* ProfileNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */; };
+		FD09D7CB2DC7A4B00047B141 /* SkillExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */; };
 		FD0EBE982DACD9E000DECFFA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE972DACD9E000DECFFA /* FirebaseAuth */; };
 		FD0EBE9A2DACD9E000DECFFA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE992DACD9E000DECFFA /* FirebaseFirestore */; };
 		FD0EBE9C2DACD9E000DECFFA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FD0EBE9B2DACD9E000DECFFA /* FirebaseStorage */; };
@@ -97,6 +99,8 @@
 		FD09D7C22DC765890047B141 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		FD09D7C42DC76DBC0047B141 /* MatchKanBan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchKanBan.swift; sourceTree = "<group>"; };
 		FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceBreakingSummaryView.swift; sourceTree = "<group>"; };
+		FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCard.swift; sourceTree = "<group>"; };
+		FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillExchangeView.swift; sourceTree = "<group>"; };
 		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9036742DBA6A5400ECC559 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FD9036752DBA6A5400ECC559 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -306,11 +310,13 @@
 		FD9036962DBA6A5400ECC559 /* WithUsers */ = {
 			isa = PBXGroup;
 			children = (
+				FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */,
 				FD9036922DBA6A5400ECC559 /* QuestionsRowView.swift */,
 				FD9036932DBA6A5400ECC559 /* SumQuestionView.swift */,
 				FD9036942DBA6A5400ECC559 /* UserListView.swift */,
 				FD9036952DBA6A5400ECC559 /* UserRowView.swift */,
 				FD09D7C22DC765890047B141 /* UserDetailView.swift */,
+				FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */,
 				FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */,
 				FD09D7C42DC76DBC0047B141 /* MatchKanBan.swift */,
 			);
@@ -620,6 +626,7 @@
 				FD9036C32DBA6A5400ECC559 /* SumView3.swift in Sources */,
 				FD9036C42DBA6A5400ECC559 /* WellDoneView.swift in Sources */,
 				FD9036C52DBA6A5400ECC559 /* AppEggView.swift in Sources */,
+				FD09D7C92DC7903B0047B141 /* ProfileNameCard.swift in Sources */,
 				FD9036C62DBA6A5400ECC559 /* AppLoadingPage.swift in Sources */,
 				FD9036C72DBA6A5400ECC559 /* CheckboxToggleStyle.swift in Sources */,
 				FD9036C82DBA6A5400ECC559 /* CustomTabBar.swift in Sources */,
@@ -637,6 +644,7 @@
 				FD09D7C32DC765890047B141 /* UserDetailView.swift in Sources */,
 				FD9036D02DBA6A5400ECC559 /* InsightView.swift in Sources */,
 				FD9036D12DBA6A5400ECC559 /* MatchView.swift in Sources */,
+				FD09D7CB2DC7A4B00047B141 /* SkillExchangeView.swift in Sources */,
 				FD90377C2DBB4A3800ECC559 /* SessionStore.swift in Sources */,
 				FD9037842DBB4F9D00ECC559 /* GoogleSignInButton.swift in Sources */,
 				FD9037852DBB4F9D00ECC559 /* RegistrationView.swift in Sources */,

@@ -15,17 +15,20 @@ struct MatchKanBan: View {
         VStack(alignment: .leading, spacing: 16) {
             Text("Matching Preview")
                 .font(.custom("K2D-Bold", size: 20))
+                .padding(.horizontal, 10)
 
             HStack(alignment: .top) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Matching Rate with you")
                         .font(.custom("K2D-Regular", size: 18))
                         .foregroundColor(.secondary)
+                    Spacer().frame(height: 3)
                     Text("\(Int(user.MatchRate * 100))%")
                         .font(.custom("K2D-Bold", size: 50))
+                        .offset(x: 30)
                 }
 
-                Spacer()
+                Spacer().frame(width: 30)
 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Shared Interests")
@@ -37,14 +40,13 @@ struct MatchKanBan: View {
                     }
                 }
             }
+            .padding(.horizontal, 10)
         }
-        .padding()
         .background {
             RoundedRectangle(cornerRadius: 12)
                 .fill(Color.white)
-                .frame(width: 350, height: 200)
+                .frame(height: 200)
         }
-        .padding()
     }
 }
 

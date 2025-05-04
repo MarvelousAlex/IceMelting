@@ -22,48 +22,56 @@ struct UserDetailView: View {
             ZStack {
                 Color.skinn.ignoresSafeArea()
                 ScrollView {
-                VStack(alignment: .leading, spacing: 16) {
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.armyGreen)
-                            .frame(width: 360, height: 100)
-                        Text(user.name)
-                            .font(.custom("K2D-Bold", size: 30))
-                            .foregroundStyle(Color.white)
-                            .bold()
-                            .padding(.leading, 16)
-                    }
+                VStack(spacing: 10) {
+                    ProfileNameCard(user: user)
 
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 20) {
-                            ForEach(Array(user.Preference.enumerated()), id: \.element) { index, pref in
-                                Text(pref)
-                                    .font(.custom("Nunito-Semibold", size: 20))
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 8)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 20)
-                                            .fill(assetColors[index % assetColors.count])
-                                            .opacity(0.7)
-                                    )
-                            }
-                        }
-                        .frame(height: 60)
-                        .padding(.horizontal, 6)
-                    }
+                    TagList
+
+                    Spacer().frame(height: 15)
 
                     MatchKanBan(user: user)
+                        .padding(.horizontal, 6)
+
+                    Spacer().frame(height: 15)
 
                     IceBreakingSummaryView()
+                        .padding(.horizontal, 6)
+
+                    Spacer().frame(height: 15)
+
+                    SkillExchangeView()
+                        .padding(.horizontal, 6)
 
                     Spacer()
                 }
-                .padding()
+                .padding(.horizontal, 8)
             }
         }
         .navigationTitle("Profile")
     }
 
+}
+
+extension UserDetailView {
+    private var TagList: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 20) {
+                ForEach(Array(user.Preference.enumerated()), id: \.element) { index, pref in
+                    Text(pref)
+                        .font(.custom("Nunito-Semibold", size: 20))
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 8)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(assetColors[index % assetColors.count])
+                                .opacity(0.7)
+                        )
+                }
+            }
+            .frame(height: 60)
+        }
+        .padding(.horizontal, 14)
+    }
 }
 
 struct UserDetailView_Previews: PreviewProvider {
