@@ -17,8 +17,10 @@ struct UserListView: View {
                 Color.skinn.ignoresSafeArea()
                 ScrollView {
                     ForEach(viewModel.usersList) { user in
-                        UserRowView(user: user)
-                            .padding(10)
+                        NavigationLink(destination: UserDetailView(user: user)) {
+                            UserRowView(user: user)
+                                .padding(10)
+                        }
                         Spacer().frame(height: 10)
                     }
                 }

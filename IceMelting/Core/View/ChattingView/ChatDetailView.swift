@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ChatDetailView: View {
     @StateObject private var viewModel: ChatDetailViewModel
+    @Environment(\.dismiss) var dismiss
 
     init(contact: Contact) {
         _viewModel = StateObject(wrappedValue: ChatDetailViewModel(contact: contact))
@@ -22,6 +23,7 @@ struct ChatDetailView: View {
                     // pop back
                     // in a NavigationView, this will auto-go back
                     // or you could use environment(\.presentationMode) to dismiss
+                    dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         
@@ -75,7 +77,9 @@ struct ChatDetailView: View {
             HStack {
                 TextField("", text: $viewModel.newMessage)
                     .padding(12)
-                    .background(Color(white: 0.95))
+                    .background(content: {
+                        Color.black
+                    })
                     .cornerRadius(25)
                 
                 Button {

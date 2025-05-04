@@ -42,7 +42,6 @@ struct AuthenticationView: View {
         NavigationStack {
             ZStack {
                 Color.skinn.ignoresSafeArea()
-                ScrollView {
                     VStack(spacing: 20) {
                         // App title/welcome message.
                         Text("Welcome")
@@ -73,7 +72,6 @@ struct AuthenticationView: View {
                         LoginButton
                     }
                     .padding()
-                }
             }
             
             // Hidden navigation link that triggers when showMainView is true.

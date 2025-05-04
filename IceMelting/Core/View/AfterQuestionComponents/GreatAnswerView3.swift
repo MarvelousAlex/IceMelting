@@ -14,8 +14,8 @@ struct GreatAnswerView3: View {
     
     // New states for the second text:
     @State private var secondTextOpacity: Double = 0.0
-    @State private var secondTextHight: Double = 550.0
-    
+    @State private var secondTextHight: Double = 350.0
+
     @State private var navigateToQuestionView2: Bool = false
     
     var body: some View {
@@ -43,7 +43,7 @@ struct GreatAnswerView3: View {
                     .onAppear {
                         withAnimation(.spring(duration: 2).delay(0.5)) {
                             secondTextOpacity = 1.0
-                            secondTextHight = 350
+                            secondTextHight = 100
                         }
                     }
             }

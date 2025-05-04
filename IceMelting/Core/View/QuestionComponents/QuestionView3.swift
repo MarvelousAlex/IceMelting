@@ -52,6 +52,7 @@ struct QuestionView3: View {
                     
                 }
                 
+                // TODO: NavigationLink
                 SendLabel
                     .padding(.top, 700)
                 
