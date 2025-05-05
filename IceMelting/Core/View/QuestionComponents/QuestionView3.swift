@@ -8,22 +8,25 @@
 import SwiftUI
 
 struct QuestionView3: View {
-    
-    @State private var isHD: Bool = false
-    @State private var isD: Bool = false
-    @State private var isCredit: Bool = false
-    @State private var isPass: Bool = false
-    
-    
+
+    enum GradeOption: String, CaseIterable, Identifiable {
+        case highDistinction = "High Distinction"
+        case distinction = "Distinction"
+        case credit = "Credit"
+        case pass = "Pass"
+
+        var id: String { rawValue }
+    }
+
+    @State private var selection: GradeOption?
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Color.pureWhite.ignoresSafeArea()
-                
-                ProgressBar(step1Complete: true, step2Complete: true, step3Complete: true)
-                    .padding(.bottom, 700)
-                
                 VStack(alignment: .center, spacing: 15) {
+                    ProgressBar(step1Complete: true, step2Complete: true, step3Complete: true)
+                    Spacer().frame(height: 30)
                     Circle()
                         .foregroundStyle(Color.skinYellow)
                         .frame(width: 80)
@@ -32,7 +35,7 @@ struct QuestionView3: View {
                                 .font(.custom("K2D-Bold", size: 36))
                                 .foregroundStyle(Color.white)
                         }
-                    
+
                     Text("What is your\nexpectation to the class?")
                         .padding()
                         .font(.custom("K2D-Bold", size: 28))
@@ -41,21 +44,43 @@ struct QuestionView3: View {
                         .background {
                             Image("QuestionBubble")
                         }
-                
-                    Group {
-                        HD_Option
-                        D_Option
-                        C_Option
-                        Pass_Option
+
+                    // Options
+                    VStack(spacing: 10) {
+                        ForEach(GradeOption.allCases) { option in
+                            Text(option.rawValue)
+                                .font(.custom("K2D-Regular", size: 20))
+                                .frame(width: 360, height: 60)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 99)
+                                        .foregroundStyle(selection == option ? Color.blue : Color.yesOrNo)
+                                }
+                                .foregroundColor(selection == option ? .white : .black)
+                                .onTapGesture {
+                                    withAnimation(.spring(duration: 1)) {
+                                        selection = option
+                                    }
+                                }
+                        }
                     }
-                    .foregroundStyle(Color.black)
-                    
+
+                    Spacer().frame(height: 30)
+
+                    NavigationLink {
+                        GreatAnswerView3()
+                    } label: {
+                        Text("SEND")
+                            .font(.custom("K2D-Bold", size: 18))
+                            .bold()
+                            .foregroundColor(.white)
+                            .frame(width: 360, height: 60)
+                            .background(Color.black)
+                            .cornerRadius(99)
+                            .padding(.horizontal)
+                    }
+                    .disabled(selection == nil)
+                    .opacity(selection == nil ? 0.5 : 1)
                 }
-                
-                // TODO: NavigationLink
-                SendLabel
-                    .padding(.top, 700)
-                
             }
             .navigationBarBackButtonHidden()
         }
@@ -64,73 +89,4 @@ struct QuestionView3: View {
 
 #Preview {
     QuestionView3()
-}
-
-extension QuestionView3 {
-    private var SendLabel: some View {
-        Text("SEND")
-            .font(.custom("K2D-Bold", size: 18))
-            .bold()
-            .foregroundColor(.white)
-            .frame(width: 360, height: 60)
-            .background(Color.black)
-            .cornerRadius(99)
-            .padding(.horizontal)
-    }
-    
-    private var HD_Option: some View {
-        Text("High Distinction")
-            .font(.custom("K2D-Regular", size: 20))
-            .frame(width: 360, height: 60)
-            .background {
-                RoundedRectangle(cornerRadius: 99)
-                    .foregroundStyle(isHD ? Color.blue : Color.yesOrNo)
-            }
-            .onTapGesture {
-                isHD.toggle()
-            }
-            .animation(.spring(duration: 1), value: isHD)
-    }
-    
-    private var D_Option: some View {
-        Text("Distinction")
-            .font(.custom("K2D-Regular", size: 20))
-            .frame(width: 360, height: 60)
-            .background {
-                RoundedRectangle(cornerRadius: 99)
-                    .foregroundStyle(isD ? Color.blue : Color.yesOrNo)
-            }
-            .onTapGesture {
-                isD.toggle()
-            }
-            .animation(.spring(duration: 1), value: isD)
-    }
-    
-    private var C_Option: some View {
-        Text("Credit")
-            .font(.custom("K2D-Regular", size: 20))
-            .frame(width: 360, height: 60)
-            .background {
-                RoundedRectangle(cornerRadius: 99)
-                    .foregroundStyle(isCredit ? Color.blue : Color.yesOrNo)
-            }
-            .onTapGesture {
-                isCredit.toggle()
-            }
-            .animation(.spring(duration: 1), value: isCredit)
-    }
-    
-    private var Pass_Option: some View {
-        Text("Pass")
-            .font(.custom("K2D-Regular", size: 20))
-            .frame(width: 360, height: 60)
-            .background {
-                RoundedRectangle(cornerRadius: 99)
-                    .foregroundStyle(isPass ? Color.blue : Color.yesOrNo)
-            }
-            .onTapGesture {
-                isPass.toggle()
-            }
-            .animation(.spring(duration: 1), value: isPass)
-    }
 }

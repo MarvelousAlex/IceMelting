@@ -39,15 +39,9 @@ struct ProgressBar: View {
 
 struct ProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(spacing: 70) {
+        VStack(spacing: 0) {
             // Example: Only the first step is complete
             ProgressBar(step1Complete: true, step2Complete: false, step3Complete: false)
-            
-            // Example: First two steps complete
-            ProgressBar(step1Complete: true, step2Complete: true, step3Complete: false)
-            
-            // Example: All steps complete
-            ProgressBar(step1Complete: true, step2Complete: true, step3Complete: true)
         }
         .padding()
         .previewLayout(.sizeThatFits)
