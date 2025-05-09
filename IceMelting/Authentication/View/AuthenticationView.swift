@@ -9,8 +9,7 @@ import SwiftUI
 import FirebaseAuth
 import GoogleSignIn
 
-
-struct AuthenticationView: View {
+struct AuthenticationView: View { 
     @StateObject var authVM = AuthViewModel()
     // This state controls navigation to MainView upon successful sign-in.
     @State private var showMainView = false
@@ -73,8 +72,19 @@ struct AuthenticationView: View {
                     }
                     .padding()
             }
-            
-            // Hidden navigation link that triggers when showMainView is true.
+            .toolbar(content: {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        AppLoadingPage()
+                    } label: {
+                        Text("skip login")
+                            .font(.custom("K2D-Semibold", size: 15))
+                            .foregroundStyle(Color.black)
+                    }
+
+                }
+            })
+            .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $showMainView) {
                 AppLoadingPage()
             }
@@ -165,23 +175,29 @@ extension AuthenticationView {
                         .foregroundStyle(Color.white)
                 }
             
+            Spacer().frame(height: 10)
+            
             Text("Forget password?")
+                .foregroundStyle(Color.black)
                 .font(.custom("K2D-Bold", size: 10))
         }
     }
     
     private var supportingNav: some View {
-        NavigationLink {
-            RegistrationView()
-        } label: {
-            HStack {
-                Text("Don't have an account?")
+        HStack {
+            Text("Don't have an account?")
+                .font(.custom("K2D-Bold", size: 15))
+                .foregroundStyle(Color.black)
+            NavigationLink {
+                RegistrationView()
+            } label: {
                 Text("Register here")
                     .underline()
+                    .font(.custom("K2D-Bold", size: 15))
+                    .foregroundStyle(Color.black)
             }
-            .font(.custom("K2D-Bold", size: 15))
-            .foregroundStyle(Color.black)
         }
+        
     }
     
     private var LoginButton: some View {
@@ -198,6 +214,7 @@ extension AuthenticationView {
             } else {
                 Text("Login")
                     .padding(15)
+                    .font(.custom("K2D-Bold", size: 20))
                     .frame(maxWidth: .infinity)
                     .foregroundColor(.white)
                     .background {

@@ -20,45 +20,19 @@ struct QuestionView1: View {
                 
                 VStack(spacing: 0) {
                     
-                    Circle()
-                        .foregroundStyle(Color.skinYellow)
-                        .frame(width: 80)
-                        .overlay {
-                            Text("01")
-                                .font(.custom("K2D-Bold", size: 36))
-                                .foregroundStyle(Color.white)
-                        }
+                    QuestionNumber // 01
                     
                     Spacer().frame(height: 70)
                     
-                    Text("What do you study?") // what is your major?
-                        .font(.custom("K2D-Bold", size: 30))
-                        .foregroundStyle(Color.black)
-                        .background {
-                            Image("QuestionBubble")
-                        }
+                    QuestionText // what do you study?
                     
                     Spacer().frame(height: 200)
                             
-                } // what do you study
-                
-                VStack {
-                    
-                    Text("Your Answer")
-                        .font(.custom("K2D-SemiBold", size: 20))
-                        .foregroundStyle(Color.black)
-                    TextField("", text: $TheAns)
-                        .padding(.leading, 15)
-                        .frame(width: 360, height: 60)
-                        .foregroundStyle(Color.black)
-                        .background {
-                            RoundedRectangle(cornerRadius: 60)
-                                .opacity(0.1)
-                                .foregroundStyle(Color.black)
-                        }
                 }
-                .padding(.top, 500)
                 
+                AnswerText
+                
+                // TODO: clean the codes here
                 if TheAns.isEmpty {
                     SendLabel
                         .padding(.top, 700)
@@ -70,6 +44,7 @@ struct QuestionView1: View {
                     }
                     .padding(.top, 700)
                 }
+                
             }
             .navigationBarBackButtonHidden()
         }
@@ -81,6 +56,7 @@ struct QuestionView1: View {
 }
 
 extension QuestionView1 {
+    
     private var SendLabel: some View {
         Text("SEND")
             .font(.custom("K2D-Bold", size: 18))
@@ -91,4 +67,43 @@ extension QuestionView1 {
             .cornerRadius(99)
             .padding(.horizontal)
     }
+    
+    private var QuestionNumber: some View {
+        Circle()
+            .foregroundStyle(Color.skinYellow)
+            .frame(width: 80)
+            .overlay {
+                Text("01")
+                    .font(.custom("K2D-Bold", size: 36))
+                    .foregroundStyle(Color.white)
+            }
+    }
+    
+    private var QuestionText: some View {
+        Text("What do you study?") // what is your major?
+            .font(.custom("K2D-Bold", size: 30))
+            .foregroundStyle(Color.black)
+            .background {
+                Image("QuestionBubble")
+            }
+    }
+    
+    private var AnswerText: some View {
+        VStack {
+            Text("Your Answer")
+                .font(.custom("K2D-SemiBold", size: 20))
+                .foregroundStyle(Color.black)
+            TextField("", text: $TheAns)
+                .padding(.leading, 15)
+                .frame(width: 360, height: 60)
+                .foregroundStyle(Color.black)
+                .background {
+                    RoundedRectangle(cornerRadius: 60)
+                        .opacity(0.1)
+                        .foregroundStyle(Color.black)
+                }
+        }
+        .padding(.top, 500)
+    }
+    
 }

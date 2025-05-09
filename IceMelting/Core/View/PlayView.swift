@@ -19,13 +19,11 @@ struct PlayView: View {
             case 3: ChatView()
             default: ProfileView()
             }
-            VStack {
-                CustomTabBar(selectedTab: $selectedTab)
-                    .offset(y: 370)
-            }
+            // MARK: - Custome tabbar with parameters
+            CustomTabBar(selectedTab: $selectedTab)
+                .offset(y: 360)
         }
         .navigationBarBackButtonHidden()
-//        .ignoresSafeArea()
     }
 }
 

@@ -43,7 +43,7 @@ struct GreatAnswerView2: View {
                     .onAppear {
                         withAnimation(.spring(duration: 2).delay(0.5)) {
                             secondTextOpacity = 1.0
-                            secondTextHight = 100
+                            secondTextHight = 250
                         }
                     }
             }

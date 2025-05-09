@@ -44,6 +44,7 @@ struct UserDetailView: View {
 
                     Spacer()
                 }
+//                .ignoresSafeArea(.keyboard)
                 .padding(.horizontal, 8)
             }
         }

@@ -41,7 +41,6 @@ struct SumView1: View {
                                     .frame(width: 350, height: 60)
                             }
                     }
-
                 }
             }
             .navigationBarBackButtonHidden()
@@ -52,3 +51,10 @@ struct SumView1: View {
 #Preview {
     SumView1()
 }
+
+//extension SumView1 {
+//    
+//    private var SumText: some View {
+//
+//    }
+//}

@@ -14,7 +14,6 @@ struct GreatAnswerView: View {
     // New states for the second text:
     @State private var secondTextOpacity: Double = 0.0
     @State private var secondTextHight: Double = 350.0
-
     @State private var navigateToQuestionView2: Bool = false
     
     var body: some View {
@@ -42,13 +41,12 @@ struct GreatAnswerView: View {
                     .onAppear {
                         withAnimation(.spring(duration: 2).delay(0.5)) {
                             secondTextOpacity = 1.0
-                            secondTextHight = 100
+                            secondTextHight = 250
                         }
                     }
             }
         }
         .onAppear {
-            // Calculate total animation duration (here: delay (0.5) + animation duration (2.0) )
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 navigateToQuestionView2 = true
             }

@@ -17,24 +17,16 @@ struct NameView: View {
                 Color.pureWhite.ignoresSafeArea()
                 Image("NameImg1").offset(y: -65)
                 VStack(alignment: .center, spacing: 10) {
-                    HStack(spacing:0) {
-                        Text("Enter Your ")
-                            .font(.custom("K2D-Regular", size: 22))
-                        Text("Name🫶🏻")
-                            .font(.custom("K2D-SemiBold", size: 22))
-                    }
-                    .foregroundStyle(Color.black)
                     
-                    TextField("", text: $TheName)
-                        .padding(.horizontal, 15)
-                        .foregroundStyle(Color.white)
-                        .frame(width: 360, height: 60)
-                        .background{
-                            RoundedRectangle(cornerRadius: 60)
-                                .foregroundStyle(Color.yesOrNo)
-                        }
-                        .padding(.horizontal)
+                    Spacer()
                     
+                    HintText
+                    
+                    NameTextField
+                    
+                    Spacer()
+                    
+                    // MARK: - Send button
                     Group {
                         if TheName.isEmpty {
                             SendLabel
@@ -45,7 +37,7 @@ struct NameView: View {
                                 SendLabel
                             }
                         }
-                    }.offset(y: 300)
+                    }
                         
                 }
             }
@@ -132,6 +124,28 @@ extension NameView {
             .font(.custom("K2D-SemiBold", size: 14))
             .foregroundStyle(Color.black)
             .padding(.trailing, 15)
+    }
+    
+    private var NameTextField: some View {
+        TextField("", text: $TheName)
+            .padding(.horizontal, 15)
+            .foregroundStyle(Color.white)
+            .frame(width: 360, height: 60)
+            .background{
+                RoundedRectangle(cornerRadius: 60)
+                    .foregroundStyle(Color.yesOrNo)
+            }
+            .padding(.horizontal)
+    }
+    
+    private var HintText: some View {
+        HStack(spacing:0) {
+            Text("Enter Your ")
+                .font(.custom("K2D-Regular", size: 22))
+            Text("Name🫶🏻")
+                .font(.custom("K2D-SemiBold", size: 22))
+        }
+        .foregroundStyle(Color.black)
     }
     
 }

@@ -62,7 +62,7 @@ extension MatchView {
                     .foregroundColor(.white)
                     .background {
                         RoundedRectangle(cornerRadius: 16).opacity(0.8)
-                            .foregroundStyle(Color.gray.opacity(0.5))
+                            .foregroundStyle(Color.gray.opacity(0.3))
                     }
                 if !CodeNum.isEmpty {
                     NavigationLink {
@@ -90,7 +90,7 @@ extension MatchView {
             .foregroundStyle(Color.white)
             .padding()
             .frame(height: 50)
-            .background(CodeNum.isEmpty ? Color.gray.opacity(0.5) : Color.black)
+            .background(CodeNum.isEmpty ? Color.gray.opacity(0.3) : Color.black)
             .cornerRadius(16)
     }
     

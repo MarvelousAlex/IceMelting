@@ -15,20 +15,23 @@ struct AppLoadingPage: View {
         NavigationStack {
             ZStack {
                 Color.pureWhite.ignoresSafeArea()
-                
-                Image("AppIconImage")
-                    .resizable()
-                    .frame(width: 450, height: 480)
-                    .onTapGesture(count: 2) {
-                        goToAppEgg = true
-                    }
-                
-                NavigationLink(destination: PlayView()) {
-                    StartingLabel
+                VStack {
+                    Image("AppIconImage")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 450*0.9, height: 480*0.9)
+                        .onTapGesture(count: 2) {
+                            goToAppEgg = true
+                        }
+                    
+                    Spacer().frame(height: 90)
+                    
+                    NavigationLink(destination: PlayView()) {
+                        StartingLabel
+                    }.offset(y:90)
                 }
-                .padding(.top, 700)
             }
-            // Attach the new navigationDestination modifier on the NavigationStack.
+            .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $goToAppEgg) {
                 AppEggView()
             }
