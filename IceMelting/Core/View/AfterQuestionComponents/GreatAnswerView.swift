@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct GreatAnswerView: View {
-    
+struct GreatAnswerView: View { 
     @State private var textOpacity: Double = 0.0
     @State private var textHight: Double = 100.0
     
@@ -54,9 +53,8 @@ struct GreatAnswerView: View {
                 navigateToQuestionView2 = true
             }
         }
-        // Hidden NavigationLink that triggers when navigateToQuestionView2 becomes true:
         .navigationDestination(isPresented: $navigateToQuestionView2) {
-            QuestionView2()
+            SumView1()
         }
     }
 }

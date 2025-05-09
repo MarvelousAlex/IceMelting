@@ -52,11 +52,11 @@ struct GreatAnswerView2: View {
             // Calculate total animation duration (here: delay (0.5) + animation duration (2.0) )
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 navigateToQuestionView3 = true
-            } 
+            }
         }
         // Hidden NavigationLink that triggers when navigateToQuestionView2 becomes true:
         .navigationDestination(isPresented: $navigateToQuestionView3) {
-            QuestionView3()
+            SumView2()
         }
     }
 }

@@ -76,6 +76,7 @@ struct SumView3: View {
 
                 }
             }
+            .navigationBarBackButtonHidden()
         }
     }
 }

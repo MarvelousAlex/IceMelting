@@ -57,7 +57,7 @@ struct GreatAnswerView3: View {
         }
         // Hidden NavigationLink that triggers when navigateToQuestionView2 becomes true:
         .navigationDestination(isPresented: $navigateToQuestionView2) {
-            WellDoneView() 
+            SumView3()
         }
     }
 }
