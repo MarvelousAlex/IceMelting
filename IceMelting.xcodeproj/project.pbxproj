@@ -17,6 +17,7 @@
 		FD09D7C72DC779EE0047B141 /* IceBreakingSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */; };
 		FD09D7C92DC7903B0047B141 /* ProfileNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */; };
 		FD09D7CB2DC7A4B00047B141 /* SkillExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */; };
+		FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228E652DD3592A00856ECD /* InsightPageView.swift */; };
 		FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */; };
 		FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036742DBA6A5400ECC559 /* Question.swift */; };
 		FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036752DBA6A5400ECC559 /* Users.swift */; };
@@ -38,7 +39,6 @@
 		FD9036CD2DBA6A5400ECC559 /* QuestionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036882DBA6A5400ECC559 /* QuestionView2.swift */; };
 		FD9036CE2DBA6A5400ECC559 /* QuestionView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036892DBA6A5400ECC559 /* QuestionView3.swift */; };
 		FD9036CF2DBA6A5400ECC559 /* MatchRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90368B2DBA6A5400ECC559 /* MatchRowView.swift */; };
-		FD9036D02DBA6A5400ECC559 /* InsightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90368D2DBA6A5400ECC559 /* InsightView.swift */; };
 		FD9036D12DBA6A5400ECC559 /* MatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90368E2DBA6A5400ECC559 /* MatchView.swift */; };
 		FD9036D22DBA6A5400ECC559 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90368F2DBA6A5400ECC559 /* ChatView.swift */; };
 		FD9036D32DBA6A5400ECC559 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036902DBA6A5400ECC559 /* ProfileView.swift */; };
@@ -103,6 +103,7 @@
 		FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceBreakingSummaryView.swift; sourceTree = "<group>"; };
 		FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCard.swift; sourceTree = "<group>"; };
 		FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillExchangeView.swift; sourceTree = "<group>"; };
+		FD228E652DD3592A00856ECD /* InsightPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightPageView.swift; sourceTree = "<group>"; };
 		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9036742DBA6A5400ECC559 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FD9036752DBA6A5400ECC559 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -124,7 +125,6 @@
 		FD9036882DBA6A5400ECC559 /* QuestionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView2.swift; sourceTree = "<group>"; };
 		FD9036892DBA6A5400ECC559 /* QuestionView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView3.swift; sourceTree = "<group>"; };
 		FD90368B2DBA6A5400ECC559 /* MatchRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchRowView.swift; sourceTree = "<group>"; };
-		FD90368D2DBA6A5400ECC559 /* InsightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightView.swift; sourceTree = "<group>"; };
 		FD90368E2DBA6A5400ECC559 /* MatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchView.swift; sourceTree = "<group>"; };
 		FD90368F2DBA6A5400ECC559 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		FD9036902DBA6A5400ECC559 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -303,10 +303,10 @@
 		FD9036912DBA6A5400ECC559 /* TabbarViews */ = {
 			isa = PBXGroup;
 			children = (
-				FD90368D2DBA6A5400ECC559 /* InsightView.swift */,
 				FD90368E2DBA6A5400ECC559 /* MatchView.swift */,
 				FD90368F2DBA6A5400ECC559 /* ChatView.swift */,
 				FD9036902DBA6A5400ECC559 /* ProfileView.swift */,
+				FD228E652DD3592A00856ECD /* InsightPageView.swift */,
 			);
 			path = TabbarViews;
 			sourceTree = "<group>";
@@ -624,6 +624,7 @@
 				FD9036F12DBA6F2500ECC559 /* ChatDetailView.swift in Sources */,
 				FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */,
 				FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */,
+				FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */,
 				FD9036BE2DBA6A5400ECC559 /* GreatAnswerView.swift in Sources */,
 				FD9036BF2DBA6A5400ECC559 /* GreatAnswerView2.swift in Sources */,
 				FD9036C02DBA6A5400ECC559 /* GreatAnswerView3.swift in Sources */,
@@ -648,7 +649,6 @@
 				FD9036CE2DBA6A5400ECC559 /* QuestionView3.swift in Sources */,
 				FD9036CF2DBA6A5400ECC559 /* MatchRowView.swift in Sources */,
 				FD09D7C32DC765890047B141 /* UserDetailView.swift in Sources */,
-				FD9036D02DBA6A5400ECC559 /* InsightView.swift in Sources */,
 				FD9036D12DBA6A5400ECC559 /* MatchView.swift in Sources */,
 				FD09D7CB2DC7A4B00047B141 /* SkillExchangeView.swift in Sources */,
 				FD90377C2DBB4A3800ECC559 /* SessionStore.swift in Sources */,

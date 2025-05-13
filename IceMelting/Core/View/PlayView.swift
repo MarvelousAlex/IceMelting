@@ -15,7 +15,7 @@ struct PlayView: View {
             switch selectedTab {
             case 0: ProfileView()
             case 1: MatchView()
-            case 2: InsightView()
+            case 2: InsightPageView()
             case 3: ChatView()
             default: ProfileView()
             }
