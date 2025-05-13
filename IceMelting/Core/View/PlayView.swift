@@ -9,12 +9,22 @@
 import SwiftUI
 
 struct PlayView: View {
+
     @State private var selectedTab = 1
+    @State private var selectedUser: Users? = nil
+
     var body: some View {
         ZStack {
             switch selectedTab {
             case 0: ProfileView()
-            case 1: MatchView()
+            case 1:
+                if let user = selectedUser {
+                    UserDetailView(user: user)
+                } else {
+                    MatchView(onUserSelected: { user in
+                        selectedUser = user
+                    })
+                }
             case 2: InsightPageView()
             case 3: ChatView()
             default: ProfileView()

@@ -9,7 +9,8 @@ import SwiftUI
 import Combine
 
 struct MatchView: View {
-    
+
+    var onUserSelected: (Users) -> Void
     @State private var CodeNum: String = ""
     
     var body: some View {
@@ -27,9 +28,9 @@ struct MatchView: View {
     }
 }
 
-#Preview {
-    MatchView()
-}
+//#Preview {
+//    MatchView()
+//}
 
 extension MatchView {
     

@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct WellDoneView: View {
-    
+
     @State private var textSize: Double = 0
     @State private var secondtextSize: Double = 0
     @State private var secondTextOpacity: Double = 0
     @State private var ImageOpacity: Double = 0
     @State private var ButtonOpacity: Double = 0
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -27,24 +27,24 @@ struct WellDoneView: View {
                         }
                     }
                 VStack(spacing: 10) {
-                     
+
                     Spacer()
-                    
+
                     WellDoneText
-                    
+
                     matchCaption
-                    
+
                     Spacer()
-                    
+
                     navButton
-                    
+
                 }
             }
             .navigationBarBackButtonHidden()
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     NavigationLink {
-                        MatchView()
+                        MatchView(onUserSelected: { _ in })
                     } label: {
                         Text("Leave")
                             .foregroundStyle(Color.black)
@@ -74,7 +74,7 @@ extension WellDoneView {
                 }
             }
     }
-    
+
     private var matchCaption: some View {
         Text("Now, start to find your match.")
             .foregroundStyle(Color.black)
@@ -86,7 +86,7 @@ extension WellDoneView {
                 }
             }
     }
-    
+
     private var navButton: some View {
         NavigationLink {
             UserListView()
