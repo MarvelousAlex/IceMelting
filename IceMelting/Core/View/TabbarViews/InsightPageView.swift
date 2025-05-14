@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct InsightPageView: View {
+
+    @StateObject private var geminiVM = GenimiViewModel()
     @State private var selectedQuestionIndex = 0
     @State private var selectedSort: SortType = .topLiked
+    @State private var showChatbot = false
 
     enum SortType: String, CaseIterable {
         case topLiked = "Top Liked"
@@ -52,6 +55,7 @@ struct InsightPageView: View {
     ]
 
     var body: some View {
+
         ZStack {
             Color.skinn.ignoresSafeArea()
             VStack(spacing: 0) {
@@ -72,6 +76,14 @@ struct InsightPageView: View {
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(height: 100)
+
+                // TODO: a button here to trigger the ai chatting
+
+                Button {
+
+                } label: {
+
+                }
 
                 // Page control bar
                 HStack(spacing: 8) {
@@ -148,8 +160,34 @@ struct InsightPageView: View {
                     .padding(.horizontal)
                 }
             }
-        }
 
+            // MARK: - Floating Chatbot Button
+                VStack {
+                        Spacer()
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                withAnimation {
+                                    showChatbot.toggle()
+                                }
+                            }) {
+                                Image(systemName: "brain.head.profile")
+                                    .resizable()
+                                    .frame(width: 44, height: 44)
+                                    .padding()
+                                    .background(Color.black)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                    .shadow(radius: 3)
+                            }
+                            .padding(.bottom, 90)
+                            .padding(.trailing, 20)
+                        }
+                    }
+             if showChatbot {
+                            ChatBotView(showChatbot: $showChatbot)
+                        }
+        }
     }
 
     func sortedAnswers() -> [(text: String, color: Color)] {
@@ -161,6 +199,8 @@ struct InsightPageView: View {
         }
     }
 }
+
+
 
 struct InsightPageView_Previews: PreviewProvider {
     static var previews: some View {

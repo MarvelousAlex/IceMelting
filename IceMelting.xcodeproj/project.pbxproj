@@ -18,6 +18,10 @@
 		FD09D7C92DC7903B0047B141 /* ProfileNameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */; };
 		FD09D7CB2DC7A4B00047B141 /* SkillExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */; };
 		FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228E652DD3592A00856ECD /* InsightPageView.swift */; };
+		FD228ED22DD42BC100856ECD /* GenerationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED12DD42BC100856ECD /* GenerationConfig.swift */; };
+		FD228ED42DD42BDB00856ECD /* GenimiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED32DD42BDB00856ECD /* GenimiViewModel.swift */; };
+		FD228ED62DD42C0F00856ECD /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED52DD42C0F00856ECD /* MessageModel.swift */; };
+		FD228ED82DD4312B00856ECD /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED72DD4312B00856ECD /* ChatBotView.swift */; };
 		FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */; };
 		FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036742DBA6A5400ECC559 /* Question.swift */; };
 		FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036752DBA6A5400ECC559 /* Users.swift */; };
@@ -104,6 +108,10 @@
 		FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCard.swift; sourceTree = "<group>"; };
 		FD09D7CA2DC7A4B00047B141 /* SkillExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillExchangeView.swift; sourceTree = "<group>"; };
 		FD228E652DD3592A00856ECD /* InsightPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightPageView.swift; sourceTree = "<group>"; };
+		FD228ED12DD42BC100856ECD /* GenerationConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationConfig.swift; sourceTree = "<group>"; };
+		FD228ED32DD42BDB00856ECD /* GenimiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenimiViewModel.swift; sourceTree = "<group>"; };
+		FD228ED52DD42C0F00856ECD /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		FD228ED72DD4312B00856ECD /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9036742DBA6A5400ECC559 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FD9036752DBA6A5400ECC559 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -213,6 +221,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD228EC22DD417EC00856ECD /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		FD9036662DBA6A5400ECC559 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,10 +261,12 @@
 		FD9036762DBA6A5400ECC559 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD228ED12DD42BC100856ECD /* GenerationConfig.swift */,
 				FD9036F22DBA702E00ECC559 /* Message.swift */,
 				FD9036EB2DBA6E0A00ECC559 /* Contact.swift */,
 				FD9036742DBA6A5400ECC559 /* Question.swift */,
 				FD9036752DBA6A5400ECC559 /* Users.swift */,
+				FD228ED52DD42C0F00856ECD /* MessageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -350,6 +367,7 @@
 				FD9036E92DBA6DCE00ECC559 /* ChatViewModel.swift */,
 				FD90369A2DBA6A5400ECC559 /* QuestionViewModel.swift */,
 				FD90369B2DBA6A5400ECC559 /* UsersViewModel.swift */,
+				FD228ED32DD42BDB00856ECD /* GenimiViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -405,6 +423,7 @@
 		FD9036B02DBA6A5400ECC559 /* IceMelting */ = {
 			isa = PBXGroup;
 			children = (
+				FD228EC22DD417EC00856ECD /* Enums */,
 				FD9036732DBA6A5400ECC559 /* Authentication */,
 				FD90369D2DBA6A5400ECC559 /* Core */,
 				FD90369F2DBA6A5400ECC559 /* Extension */,
@@ -421,6 +440,7 @@
 		FD9036ED2DBA6E5700ECC559 /* ChattingView */ = {
 			isa = PBXGroup;
 			children = (
+				FD228ED72DD4312B00856ECD /* ChatBotView.swift */,
 				FD9036F02DBA6F2500ECC559 /* ChatDetailView.swift */,
 				FD9036EE2DBA6E5D00ECC559 /* ContactRowView.swift */,
 			);
@@ -625,17 +645,20 @@
 				FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */,
 				FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */,
 				FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */,
+				FD228ED22DD42BC100856ECD /* GenerationConfig.swift in Sources */,
 				FD9036BE2DBA6A5400ECC559 /* GreatAnswerView.swift in Sources */,
 				FD9036BF2DBA6A5400ECC559 /* GreatAnswerView2.swift in Sources */,
 				FD9036C02DBA6A5400ECC559 /* GreatAnswerView3.swift in Sources */,
 				FD9036C12DBA6A5400ECC559 /* SumView1.swift in Sources */,
 				FD9036C22DBA6A5400ECC559 /* SumView2.swift in Sources */,
 				FD9036C32DBA6A5400ECC559 /* SumView3.swift in Sources */,
+				FD228ED42DD42BDB00856ECD /* GenimiViewModel.swift in Sources */,
 				FD9036C42DBA6A5400ECC559 /* WellDoneView.swift in Sources */,
 				FD9036C52DBA6A5400ECC559 /* AppEggView.swift in Sources */,
 				FD09D7C92DC7903B0047B141 /* ProfileNameCard.swift in Sources */,
 				FD9036C62DBA6A5400ECC559 /* AppLoadingPage.swift in Sources */,
 				FD9036C72DBA6A5400ECC559 /* CheckboxToggleStyle.swift in Sources */,
+				FD228ED82DD4312B00856ECD /* ChatBotView.swift in Sources */,
 				FD9036C82DBA6A5400ECC559 /* CustomTabBar.swift in Sources */,
 				FD9036C92DBA6A5400ECC559 /* MentorBotHead.swift in Sources */,
 				FD9036F52DBA705000ECC559 /* ChatDetailViewModel.swift in Sources */,
@@ -669,6 +692,7 @@
 				FD9036D82DBA6A5400ECC559 /* NameView.swift in Sources */,
 				FD9036D92DBA6A5400ECC559 /* PlayView.swift in Sources */,
 				FD9036DA2DBA6A5400ECC559 /* QuestionViewModel.swift in Sources */,
+				FD228ED62DD42C0F00856ECD /* MessageModel.swift in Sources */,
 				FD9036DB2DBA6A5400ECC559 /* UsersViewModel.swift in Sources */,
 				FD9036DC2DBA6A5400ECC559 /* Publishers_KeyboardHeigh.swift in Sources */,
 				FD9036DD2DBA6A5400ECC559 /* Utilities.swift in Sources */,

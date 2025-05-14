@@ -24,7 +24,7 @@ struct IceMeltingApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                RootView()
+                ChatBotView(showChatbot: .constant(true))
             }
         }
     }

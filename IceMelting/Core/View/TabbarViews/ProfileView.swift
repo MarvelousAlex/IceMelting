@@ -38,7 +38,8 @@ struct ProfileView: View {
                
                 
                 Spacer()
-                
+
+                // MARK: - Sign out
                 Button {
                    sessionStore.signOut()
                 } label: {
