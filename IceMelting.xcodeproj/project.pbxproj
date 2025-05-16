@@ -22,6 +22,7 @@
 		FD228ED42DD42BDB00856ECD /* GenimiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED32DD42BDB00856ECD /* GenimiViewModel.swift */; };
 		FD228ED62DD42C0F00856ECD /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED52DD42C0F00856ECD /* MessageModel.swift */; };
 		FD228ED82DD4312B00856ECD /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED72DD4312B00856ECD /* ChatBotView.swift */; };
+		FD228F072DD716A900856ECD /* ChatDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F062DD716A900856ECD /* ChatDemoView.swift */; };
 		FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */; };
 		FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036742DBA6A5400ECC559 /* Question.swift */; };
 		FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036752DBA6A5400ECC559 /* Users.swift */; };
@@ -112,6 +113,7 @@
 		FD228ED32DD42BDB00856ECD /* GenimiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenimiViewModel.swift; sourceTree = "<group>"; };
 		FD228ED52DD42C0F00856ECD /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		FD228ED72DD4312B00856ECD /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
+		FD228F062DD716A900856ECD /* ChatDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDemoView.swift; sourceTree = "<group>"; };
 		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9036742DBA6A5400ECC559 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FD9036752DBA6A5400ECC559 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				FD90368E2DBA6A5400ECC559 /* MatchView.swift */,
 				FD90368F2DBA6A5400ECC559 /* ChatView.swift */,
+				FD228F062DD716A900856ECD /* ChatDemoView.swift */,
 				FD9036902DBA6A5400ECC559 /* ProfileView.swift */,
 				FD228E652DD3592A00856ECD /* InsightPageView.swift */,
 			);
@@ -637,6 +640,7 @@
 				FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */,
 				FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */,
 				FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */,
+				FD228F072DD716A900856ECD /* ChatDemoView.swift in Sources */,
 				FD228ED22DD42BC100856ECD /* GenerationConfig.swift in Sources */,
 				FD9036BE2DBA6A5400ECC559 /* GreatAnswerView.swift in Sources */,
 				FD9036BF2DBA6A5400ECC559 /* GreatAnswerView2.swift in Sources */,
