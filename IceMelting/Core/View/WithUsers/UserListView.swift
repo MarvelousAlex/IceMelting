@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserListView: View {
     
+//    let user: Users
     @StateObject private var viewModel = UsersViewModel()
     
     var body: some View {
@@ -17,10 +18,7 @@ struct UserListView: View {
                 Color.skinn.ignoresSafeArea()
                 ScrollView {
                     ForEach(viewModel.usersList) { user in
-                        NavigationLink(destination: UserDetailView(user: user)) {
-                            UserRowView(user: user)
-                                .padding(10)
-                        }
+                        UserRowView(user: user)
                         Spacer().frame(height: 10)
                     }
                 }

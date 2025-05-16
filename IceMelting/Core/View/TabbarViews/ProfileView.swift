@@ -5,6 +5,21 @@
 //  Created by Wendy Zhou on 28/3/2025.
 //
 
+/*
+ // MARK: - Sign out
+ Button {
+    sessionStore.signOut()
+ } label: {
+     Text("Log Out")
+         .font(.custom("K2D-SemiBold", size: 20))
+         .frame(maxWidth: .infinity)
+         .padding()
+         .background(Color.littleBlue)
+         .foregroundColor(.white)
+         .cornerRadius(16)
+ }
+ */
+
 import SwiftUI
 import FirebaseAuth
 
@@ -18,39 +33,16 @@ struct ProfileView: View {
     var body: some View {
         ZStack {
             Color.skinn.ignoresSafeArea()
-            //            Image("") ???
-            VStack(alignment: .leading) {
-                Text("Hi, Wendy")
-                    .font(.custom("Nunito-SemiBold", size: 30))
-                Text("Make your own profile here")
-                    .font(.custom("Nunito-SemiBold", size: 18))
-                HStack {
-                    Text("My hobby is:")
-                        .foregroundStyle(Color.black)
-                    Picker("Select your favorite sport", selection: $selectedSport) {
-                        ForEach(sports, id: \.self) { sport in
-                            Text(sport)
-                        }
+            VStack {
+                RoundedRectangle(cornerRadius: 16)
+                    .foregroundStyle(Color.armyGreen)
+                    .frame(width: 300, height: 100)
+                    .overlay {
+                        Text("Wendy")
+                            .foregroundStyle(.white)
+                            .font(.custom("K2D-SemiBold", size: 30))
+                            .frame(alignment: .leading)
                     }
-                    .pickerStyle(MenuPickerStyle())
-                    .padding()
-                }
-               
-                
-                Spacer()
-
-                // MARK: - Sign out
-                Button {
-                   sessionStore.signOut()
-                } label: {
-                    Text("Log Out")
-                        .font(.custom("K2D-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.littleBlue)
-                        .foregroundColor(.white)
-                        .cornerRadius(16)
-                }
             }
             .padding()
         }

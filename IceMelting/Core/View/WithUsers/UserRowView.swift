@@ -69,7 +69,7 @@ struct UserRowView: View {
                     .foregroundStyle(Color.skinYellow)
                     .overlay {
                         NavigationLink {
-                            
+                            UserDetailView(user: user)
                         } label: {
                             Text("View Profile")
                                 .font(.custom("K2D-SemiBold", size: 20))

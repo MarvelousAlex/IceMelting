@@ -12,45 +12,46 @@ private let assetColorNames = [
 ]
 
 struct UserDetailView: View {
-
+    
     let user: Users
     private var assetColors: [Color] {
         assetColorNames.map { Color($0) }
     }
-
+    
     var body: some View {
-            ZStack {
-                Color.skinn.ignoresSafeArea()
-                ScrollView {
+        ZStack {
+            Color.skinn.ignoresSafeArea()
+            ScrollView {
                 VStack(spacing: 10) {
                     ProfileNameCard(user: user)
-
+                    
                     TagList
-
+                    
                     Spacer().frame(height: 15)
-
+                    
                     MatchKanBan(user: user)
                         .padding(.horizontal, 6)
-
+                    
                     Spacer().frame(height: 15)
-
+                    
                     IceBreakingSummaryView()
                         .padding(.horizontal, 6)
-
+                    
                     Spacer().frame(height: 15)
-
+                    
                     SkillExchangeView()
                         .padding(.horizontal, 6)
-
+                    
                     Spacer()
                 }
-//                .ignoresSafeArea(.keyboard)
+                //                .ignoresSafeArea(.keyboard)
                 .padding(.horizontal, 8)
             }
         }
+        .navigationBarBackButtonHidden()
         .navigationTitle("Profile")
     }
-
+    
 }
 
 extension UserDetailView {

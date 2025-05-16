@@ -95,7 +95,7 @@ struct ChatBotView: View {
                         Task {
                             await geminiVM.getResponse(message: textFiledText)
                         }
-//                        textFiledText = ""
+                        textFiledText = ""
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .padding()
