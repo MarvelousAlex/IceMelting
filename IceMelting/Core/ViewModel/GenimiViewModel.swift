@@ -13,7 +13,8 @@ class GenimiViewModel: ObservableObject {
     public func getResponse(message: String) async {
 
         // API
-        let apiKey = "AIzaSyC7ewYw2MKDGr8nv_AvuyrYayG5faU2Yg0"
+        // MARK: - If using the codes, pls replace this API with your own one, tyty!!
+        let apiKey = "AIzaSyDgEIHQ5yaNp4G1eB6MLmZ8bLH29pPFNO0"
 
         guard let url = URL(string: "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=\(apiKey)") else { return }
 
@@ -44,7 +45,7 @@ class GenimiViewModel: ObservableObject {
                 parts: [
 
                     // TODO: Prompt...
-                    Part(text: "You are a robot that only gives advice on how to have conversation with university students. Reply in max three sentences. If anything irrelevant say I don't know")
+                    Part(text: "You are a adviser for universcity student who studying in Australia. Reply in only 2 sententces in text format.")
 
                 ]
             )
