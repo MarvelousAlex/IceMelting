@@ -221,13 +221,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FD228EC22DD417EC00856ECD /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		FD9036662DBA6A5400ECC559 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,7 +416,6 @@
 		FD9036B02DBA6A5400ECC559 /* IceMelting */ = {
 			isa = PBXGroup;
 			children = (
-				FD228EC22DD417EC00856ECD /* Enums */,
 				FD9036732DBA6A5400ECC559 /* Authentication */,
 				FD90369D2DBA6A5400ECC559 /* Core */,
 				FD90369F2DBA6A5400ECC559 /* Extension */,
