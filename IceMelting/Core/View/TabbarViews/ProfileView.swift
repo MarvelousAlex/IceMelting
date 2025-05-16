@@ -26,23 +26,63 @@ import FirebaseAuth
 struct ProfileView: View {
     
     @State private var selectedSport: String = "Badminton"
-//    @StateObject private var vm = SettingsViewModel()
     @EnvironmentObject var sessionStore: SessionStore
     private let sports = ["Badminton", "Basketball", "Tennis", "Swimming", "Baseball", "Volleyball"]
     
     var body: some View {
         ZStack {
             Color.skinn.ignoresSafeArea()
-            VStack {
+            VStack(spacing: 20) {
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(Color.armyGreen)
-                    .frame(width: 300, height: 100)
+                    .frame(height: 100)
                     .overlay {
-                        Text("Wendy")
-                            .foregroundStyle(.white)
-                            .font(.custom("K2D-SemiBold", size: 30))
-                            .frame(alignment: .leading)
+                        HStack {
+                            Text("Wendy")
+                                .foregroundStyle(.white)
+                                .font(.custom("K2D-SemiBold", size: 30))
+                                .frame(alignment: .leading)
+                            Spacer().frame(width: 250)
+                        }
                     }
+                
+                ScrollView(.horizontal) {
+                    HStack {
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 50, height: 30)
+                            .foregroundStyle(Color.shineRed)
+                            .overlay {
+                                Text("HD")
+                            }
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 125, height: 30)
+                            .foregroundStyle(Color.littleBlue)
+                            .overlay {
+                                Text("Data Analtics")
+                            }
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 60, height: 30)
+                            .foregroundStyle(Color.armyGreen)
+                            .overlay {
+                                Text("UI/UX")
+                            }
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 110, height: 30)
+                            .foregroundStyle(Color.skinYellow)
+                            .overlay {
+                                Text("Badminton")
+                            }
+                    }
+                }
+                
+                IceBreakingSummaryView()
+                    .padding(.horizontal, 2)
+                
+                SkillExchangeView()
+                    .padding(.horizontal, 2)
             }
             .padding()
         }
