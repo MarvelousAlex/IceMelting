@@ -23,7 +23,6 @@
 		FD228ED62DD42C0F00856ECD /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED52DD42C0F00856ECD /* MessageModel.swift */; };
 		FD228ED82DD4312B00856ECD /* ChatBotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228ED72DD4312B00856ECD /* ChatBotView.swift */; };
 		FD228F072DD716A900856ECD /* ChatDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F062DD716A900856ECD /* ChatDemoView.swift */; };
-		FD228F0F2DD8783800856ECD /* demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD228F0E2DD8783800856ECD /* demo.swift */; };
 		FD2977692DAE8DB600FCCF50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */; };
 		FD9036BC2DBA6A5400ECC559 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036742DBA6A5400ECC559 /* Question.swift */; };
 		FD9036BD2DBA6A5400ECC559 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9036752DBA6A5400ECC559 /* Users.swift */; };
@@ -82,6 +81,7 @@
 		FD9037882DBB4F9D00ECC559 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90377F2DBB4F9D00ECC559 /* AuthenticationView.swift */; };
 		FD90378A2DBB64F600ECC559 /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9037892DBB64F600ECC559 /* SignInEmailView.swift */; };
 		FDA652F92DA8F8B6004384D3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FDA652F82DA8F8B6004384D3 /* .gitignore */; };
+		FDD88FB12DE2E3A600B524CD /* AllQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD88FB02DE2E3A600B524CD /* AllQuestionsView.swift */; };
 		FDDD7ABE2DAD4E660040A415 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FDDD7ABD2DAD4E660040A415 /* GoogleSignInSwift */; };
 		FDDD7AC82DAD55790040A415 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FDDD7AC72DAD55790040A415 /* GoogleSignIn */; };
 /* End PBXBuildFile section */
@@ -115,7 +115,6 @@
 		FD228ED52DD42C0F00856ECD /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		FD228ED72DD4312B00856ECD /* ChatBotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBotView.swift; sourceTree = "<group>"; };
 		FD228F062DD716A900856ECD /* ChatDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDemoView.swift; sourceTree = "<group>"; };
-		FD228F0E2DD8783800856ECD /* demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demo.swift; sourceTree = "<group>"; };
 		FD2977682DAE8DB600FCCF50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD9036742DBA6A5400ECC559 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		FD9036752DBA6A5400ECC559 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
@@ -178,6 +177,7 @@
 		FD9C746C2D964A690057B77C /* IceMeltingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceMeltingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD9C74762D964A690057B77C /* IceMeltingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IceMeltingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA652F82DA8F8B6004384D3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FDD88FB02DE2E3A600B524CD /* AllQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllQuestionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -238,7 +238,6 @@
 			isa = PBXGroup;
 			children = (
 				FD90377F2DBB4F9D00ECC559 /* AuthenticationView.swift */,
-				FD228F0E2DD8783800856ECD /* demo.swift */,
 				FD9037802DBB4F9D00ECC559 /* GoogleSignInButton.swift */,
 				FD9037812DBB4F9D00ECC559 /* RegistrationView.swift */,
 				FD9037822DBB4F9D00ECC559 /* RootView.swift */,
@@ -339,6 +338,7 @@
 				FD09D7C82DC7903B0047B141 /* ProfileNameCard.swift */,
 				FD09D7C62DC779EE0047B141 /* IceBreakingSummaryView.swift */,
 				FD09D7C42DC76DBC0047B141 /* MatchKanBan.swift */,
+				FDD88FB02DE2E3A600B524CD /* AllQuestionsView.swift */,
 			);
 			path = WithUsers;
 			sourceTree = "<group>";
@@ -645,6 +645,7 @@
 				FD228E662DD3592A00856ECD /* InsightPageView.swift in Sources */,
 				FD228F072DD716A900856ECD /* ChatDemoView.swift in Sources */,
 				FD228ED22DD42BC100856ECD /* GenerationConfig.swift in Sources */,
+				FDD88FB12DE2E3A600B524CD /* AllQuestionsView.swift in Sources */,
 				FD9036BE2DBA6A5400ECC559 /* GreatAnswerView.swift in Sources */,
 				FD9036BF2DBA6A5400ECC559 /* GreatAnswerView2.swift in Sources */,
 				FD9036C02DBA6A5400ECC559 /* GreatAnswerView3.swift in Sources */,
@@ -685,7 +686,6 @@
 				FD9036EC2DBA6E0A00ECC559 /* Contact.swift in Sources */,
 				FD9036D42DBA6A5400ECC559 /* QuestionsRowView.swift in Sources */,
 				FD9036D52DBA6A5400ECC559 /* SumQuestionView.swift in Sources */,
-				FD228F0F2DD8783800856ECD /* demo.swift in Sources */,
 				FD9036D62DBA6A5400ECC559 /* UserListView.swift in Sources */,
 				FD9036D72DBA6A5400ECC559 /* UserRowView.swift in Sources */,
 				FD09D7C52DC76DBC0047B141 /* MatchKanBan.swift in Sources */,

@@ -51,7 +51,7 @@ struct GreatAnswerView3: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             // Calculate total animation duration (here: delay (0.5) + animation duration (2.0) )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 navigateToQuestionView2 = true
             }
         }

@@ -50,7 +50,7 @@ struct GreatAnswerView2: View {
         }
         .onAppear {
             // Calculate total animation duration (here: delay (0.5) + animation duration (2.0) )
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 navigateToQuestionView3 = true
             }
         }
@@ -58,6 +58,7 @@ struct GreatAnswerView2: View {
         .navigationDestination(isPresented: $navigateToQuestionView3) {
             SumView2()
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
