@@ -128,10 +128,11 @@ extension NameView {
     
     private var NameTextField: some View {
         TextField("", text: $TheName)
+            .foregroundStyle(Color.black)
             .padding(.horizontal, 15)
             .foregroundStyle(Color.white)
             .frame(width: 360, height: 60)
-            .background{
+            .background {
                 RoundedRectangle(cornerRadius: 60)
                     .foregroundStyle(Color.yesOrNo)
             }

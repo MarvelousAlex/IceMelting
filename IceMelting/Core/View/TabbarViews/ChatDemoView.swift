@@ -10,6 +10,7 @@ import AVFoundation
 
 
 struct ChatDemoView: View {
+    
     @State private var step: Int = 1
 
     var body: some View {

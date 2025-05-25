@@ -10,74 +10,84 @@ import SwiftUI
 struct ChatView: View {
 
     @State private var searchText: String = ""
+    @State private var selectedTab = 3
+    @State private var isInChatDetail = false
+
     var body: some View {
-        NavigationStack {
-            VStack {
-                // Title
-                Text("Messages")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
+        ZStack {
+            switch selectedTab {
+            case 0:
+                ProfileView()
+            case 1:
+                MatchView(onUserSelected: { _ in })
+            case 2:
+                InsightPageView()
+            case 3:
+                NavigationStack {
+                    VStack {
+                        // Title
+                        Text("Messages")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
 
-                // Search Bar
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                    ZStack(alignment: .leading) {
-                        if searchText.isEmpty {
-                            Text("Search")
-                                .foregroundColor(.white)
-                        }
-                        TextField("", text: $searchText)
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-                .background(Color.black)
-                .foregroundColor(.white)
-                .cornerRadius(30)
-                .padding(.horizontal)
-
-                // Chat List
-                List {
-                    Section(header: Text("Chat")) {
-                        NavigationLink(destination: ChatDemoView()){
-                                ChatRowView(name: "Jeff", status: "new messages", imageName: "profile1", hasNewMessage: true)
+                        // Search Bar
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            ZStack(alignment: .leading) {
+                                if searchText.isEmpty {
+                                    Text("Search")
+                                        .foregroundColor(.white)
+                                }
+                                TextField("", text: $searchText)
+                                    .foregroundColor(.white)
                             }
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Tom", status: "Active xx ago", imageName: "profile2")
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Kate", status: "Active xx ago", imageName: "profile3")
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Joe", status: "Active xx ago", imageName: "profile4")
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Cindy", status: "Active xx ago", imageName: "profile5")
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Ian", status: "Active xx ago", imageName: "profile6")
-                            .listRowInsets(EdgeInsets())
-                        ChatRowView(name: "Tina", status: "Active xx ago", imageName: "profile7")
-                            .listRowInsets(EdgeInsets())
+                        }
+                        .padding()
+                        .background(Color.black)
+                        .foregroundColor(.white)
+                        .cornerRadius(30)
+                        .padding(.horizontal)
+
+                        // Chat List
+                        List {
+                            Section(header: Text("Chat")) {
+                                Button {
+                                    isInChatDetail = true
+                                } label: {
+                                    ChatRowView(name: "Jeff", status: "new messages", imageName: "profile1", hasNewMessage: true)
+                                }
+                                .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Tom", status: "Active xx ago", imageName: "profile2")
+                                    .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Kate", status: "Active xx ago", imageName: "profile3")
+                                    .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Joe", status: "Active xx ago", imageName: "profile4")
+                                    .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Cindy", status: "Active xx ago", imageName: "profile5")
+                                    .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Ian", status: "Active xx ago", imageName: "profile6")
+                                    .listRowInsets(EdgeInsets())
+                                ChatRowView(name: "Tina", status: "Active xx ago", imageName: "profile7")
+                                    .listRowInsets(EdgeInsets())
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+                        .background(Color(red: 250/255, green: 242/255, blue: 231/255))
+                        .navigationDestination(isPresented: $isInChatDetail) {
+                            ChatDemoView()
+                        }
                     }
                 }
-                .listStyle(PlainListStyle())
-
-                // Bottom Navigation
-                HStack {
-                    TabButton(icon: "Profile", label: "Profile")
-                    Spacer()
-                    TabButton(icon: "Match", label: "Match")
-                    Spacer()
-                    TabButton(icon: "Insight", label: "Insight")
-                    Spacer()
-                    TabButton(icon: "Message", label: "Message", isSelected: true)
-                }
-                .padding()
-                .background(Color.black)
-                .foregroundColor(.white)
-                .cornerRadius(30)
-                .padding(.horizontal)
+            default:
+                ProfileView()
             }
-            .background(Color(red: 250/255, green: 242/255, blue: 231/255))
+
+            if !isInChatDetail {
+                CustomTabBar(selectedTab: $selectedTab)
+                    .offset(y: 360)
+            }
         }
     }
 }
@@ -141,4 +151,3 @@ struct TabButton: View {
 #Preview {
     ChatView()
 }
-
