@@ -80,6 +80,7 @@ extension QuestionView1 {
     }
     
     private var QuestionText: some View {
+//        Text("What do you like to do\nwhen you’re not studying?")
         Text("What do you study?") // what is your major?
             .font(.custom("K2D-Bold", size: 30))
             .foregroundStyle(Color.black)
