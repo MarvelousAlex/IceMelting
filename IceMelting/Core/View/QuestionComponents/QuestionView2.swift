@@ -90,9 +90,7 @@ extension QuestionView2 {
                     .overlay {
                         Text("Yes")
                             .font(.custom("K2D-Bold", size: 25))
-                            .foregroundStyle(
-                                isTappedYes ? Color.white : Color.black
-                            )
+                            .foregroundStyle(isTappedYes ? Color.white : Color.black)
                     }
                     .onTapGesture {
                         if isTappedYes {
@@ -114,7 +112,7 @@ extension QuestionView2 {
                         Text("No")
                             .font(.custom("K2D-Bold", size: 25))
                             .foregroundStyle(
-                                isTappedYes ? Color.white : Color.black
+                                isTappedNo ? Color.white : Color.black
                             )
                     }
                     .onTapGesture {

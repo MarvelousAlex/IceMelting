@@ -111,7 +111,20 @@ struct ChatBotView: View {
             .background(Color.yellow)
             .cornerRadius(20)
             .shadow(radius: 10)
+            .padding(.bottom, 80) // adjust this value to match your custom tab bar height
             .transition(.move(edge: .bottom))
         }
     }
 }
+
+#if DEBUG
+struct ChatBotView_Previews: PreviewProvider {
+    @State static var showChatbot = true
+
+    static var previews: some View {
+        ChatBotView(showChatbot: $showChatbot)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
+}
+#endif

@@ -85,22 +85,22 @@ struct ProfileView: View {
                     SkillExchangeView()
                         .padding(.horizontal, 2)
                 }
-                .padding()
-            }
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        sessionStore.signOut()
-                    } label: {
-                        Text("Log Out")
-                            .foregroundStyle(.black)
-                            .font(.custom("K2D-Bold", size: 16))
-                    }
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button {
+                            sessionStore.signOut()
+                        } label: {
+                            Text("Log Out")
+                                .foregroundStyle(.black)
+                                .font(.custom("K2D-Bold", size: 16))
+                        }
 
+                    }
                 }
+                .padding(.horizontal, 20)
             }
+            .navigationBarBackButtonHidden()
         }
-        
     }
 }
 

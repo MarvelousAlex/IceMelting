@@ -19,37 +19,37 @@ struct UserDetailView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.skinn.ignoresSafeArea()
-            ScrollView {
-                VStack(spacing: 10) {
-                    ProfileNameCard(user: user)
-                    
-                    TagList
-                    
-                    Spacer().frame(height: 15)
-                    
-                    MatchKanBan(user: user)
-                        .padding(.horizontal, 6)
-                    
-                    Spacer().frame(height: 15)
-                    
-                    IceBreakingSummaryView()
-                        .padding(.horizontal, 6)
-                    
-                    Spacer().frame(height: 15)
-                    
-                    SkillExchangeView()
-                        .padding(.horizontal, 6)
-                    
-                    Spacer()
+        NavigationStack {
+            ZStack {
+                Color.skinn.ignoresSafeArea()
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ProfileNameCard(user: user)
+
+                        TagList
+
+                        Spacer().frame(height: 15)
+
+                        MatchKanBan(user: user)
+                            .padding(.horizontal, 6)
+
+                        Spacer().frame(height: 15)
+
+                        IceBreakingSummaryView()
+                            .padding(.horizontal, 6)
+
+                        Spacer().frame(height: 15)
+
+                        SkillExchangeView()
+                            .padding(.horizontal, 6)
+
+                        Spacer()
+                    }
+                    .padding(.horizontal, 8)
                 }
-                //                .ignoresSafeArea(.keyboard)
-                .padding(.horizontal, 8)
             }
+            .navigationTitle("Profile")
         }
-        .navigationBarBackButtonHidden()
-        .navigationTitle("Profile")
     }
     
 }

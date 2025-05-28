@@ -162,32 +162,33 @@ struct InsightPageView: View {
             }
 
             // MARK: - Floating Chatbot Button
-                VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                withAnimation {
-                                    showChatbot.toggle()
-                                }
-                            }) {
-                                Image(systemName: "brain.head.profile")
-                                    .resizable()
-                                    .frame(width: 44, height: 44)
-                                    .padding()
-                                    .background(Color.black)
-                                    .foregroundColor(.white)
-                                    .clipShape(Circle())
-                                    .shadow(radius: 3)
-                            }
-                            .padding(.bottom, 90)
-                            .padding(.trailing, 20)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        withAnimation {
+                            showChatbot.toggle()
                         }
+                    }) {
+                        Image(systemName: "brain.head.profile")
+                            .resizable()
+                            .frame(width: 44, height: 44)
+                            .padding()
+                            .background(Color.black)
+                            .foregroundColor(.white)
+                            .clipShape(Circle())
+                            .shadow(radius: 3)
                     }
-             if showChatbot {
-                            ChatBotView(showChatbot: $showChatbot)
-                        }
+                    .padding(.bottom, 90)
+                    .padding(.trailing, 20)
+                }
+                if showChatbot {
+                    ChatBotView(showChatbot: $showChatbot)
+                }
+            }
         }
+        .navigationBarBackButtonHidden()
     }
 
     func sortedAnswers() -> [(text: String, color: Color)] {

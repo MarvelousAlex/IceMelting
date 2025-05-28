@@ -15,7 +15,7 @@ struct IceBreakingSummaryView: View {
     ]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: true) {
+        ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 16) {
                 ForEach(Array(greetings.keys), id: \.self) { question in
                     let answer = greetings[question] ?? ""

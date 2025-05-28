@@ -89,6 +89,7 @@ struct ChatView: View {
                     .offset(y: 360)
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

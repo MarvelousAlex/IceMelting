@@ -41,7 +41,6 @@ struct AppEggView: View {
                 .font(.custom("Nunito-Regular", size: 20))
                 .padding()
             }
-            .navigationBarBackButtonHidden()
         }
     }
 }
