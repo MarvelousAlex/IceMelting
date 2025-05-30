@@ -7,11 +7,13 @@
 
 import SwiftUI
 import Combine
+import UIKit
 
 struct MatchView: View {
 
     var onUserSelected: (Users) -> Void
     @State private var CodeNum: String = ""
+    @State private var keyboardHeight: CGFloat = 0
     
     var body: some View {
         NavigationStack {
@@ -21,6 +23,18 @@ struct MatchView: View {
                 VStack {
                     HeadTitles.offset(y: -250)
                     CodeEnterSpace.offset(y: 100)
+                }
+            }
+            .padding(.bottom, keyboardHeight)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+                    if let frame = notif.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                        keyboardHeight = frame.height
+                    }
+                }
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+                    keyboardHeight = 0
                 }
             }
             .navigationBarBackButtonHidden()
@@ -81,7 +95,6 @@ extension MatchView {
     
     private var BGImage: some View {
         Image("MatchImg")
-//            .resizable()
             .frame(width: 410, height: 480)
     }
     

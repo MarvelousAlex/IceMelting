@@ -27,6 +27,7 @@ struct SumView2: View {
                 Color.pureWhite.ignoresSafeArea()
                 VStack(spacing: 10) {
                     Text("Do you have a job or \ninternship during study?")
+                        .foregroundStyle(Color.black)
                         .font(.custom("K2D-SemiBold", size: 28))
                         .lineLimit(2)
 
