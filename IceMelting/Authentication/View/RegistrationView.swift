@@ -92,13 +92,13 @@ extension RegistrationView {
     private var DividerWithMsg: some View {
         HStack {
             Rectangle()
-                .frame(width: 85, height: 1)
+                .frame(width: 70, height: 1)
                 .offset(x: -10)
-            Text("Or log in with email")
+            Text("Or register with email")
                 .font(.custom("K2D-Regular", size: 18))
                 .foregroundStyle(Color.black)
             Rectangle()
-                .frame(width: 85, height: 1)
+                .frame(width: 70, height: 1)
                 .offset(x: 10)
         }
         .frame(width: 360)
