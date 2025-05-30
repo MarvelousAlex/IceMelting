@@ -60,7 +60,7 @@ extension MatchView {
                 TextField("", text: $CodeNum)
                     .padding(15)
                     .frame(height: 50, alignment: .center)
-                    .foregroundColor(.white)
+                    .foregroundColor(.black)
                     .background {
                         RoundedRectangle(cornerRadius: 16).opacity(0.8)
                             .foregroundStyle(Color.gray.opacity(0.3))

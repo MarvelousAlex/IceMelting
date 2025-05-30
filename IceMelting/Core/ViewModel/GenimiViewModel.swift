@@ -45,7 +45,7 @@ class GenimiViewModel: ObservableObject {
                 parts: [
 
                     // TODO: Prompt...
-                    Part(text: "You are a adviser for universcity student who studying in Australia. Reply in only 2 sententces in text format.")
+                    Part(text: "You are an advisor for university students studying in Australia. Provide actionable, friendly suggestions to help a student make friends on campus—covering strategies like joining clubs, initiating conversations, and attending events. Reply in a clear and concise tone.")
 
                 ]
             )

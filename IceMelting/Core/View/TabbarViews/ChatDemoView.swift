@@ -10,8 +10,9 @@ import AVFoundation
 
 
 struct ChatDemoView: View {
-    
+
     @State private var step: Int = 1
+    @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         ZStack {
@@ -33,17 +34,16 @@ struct ChatDemoView: View {
                     MessageStepView(imageName: "Message_02_MessageView-5")
                 case 8:
                     MessageStepView(imageName: "Message_02_MessageView-6")
-                //TODO: case 9 -> go back to Insight View
+                case 9:
+                    ChatView()
                 default:
-                    Text("End of Demo")
-                        .font(.title)
-                        .foregroundColor(.gray)
+                    ChatView()
                 }
             }
         }
         .ignoresSafeArea()
         .onTapGesture {
-            if step < 8 {
+            if step < 9 {
                 step += 1
             }
         }
@@ -59,6 +59,8 @@ struct ChatDemoView: View {
                         playSFX(named: "hitsound")
                     case 7:
                         playSFX(named: "hitsound")
+                    case 9:
+                        dismiss()
                     default:
                         break
                     }
@@ -66,7 +68,7 @@ struct ChatDemoView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     func playSFX(named soundName: String) {
         guard let soundURL = Bundle.main.url(forResource: soundName, withExtension: "mp3") else { return }
         var player: AVAudioPlayer?
@@ -95,5 +97,3 @@ struct ChatDemoView_Previews: PreviewProvider {
         ChatDemoView()
     }
 }
-
-

@@ -110,7 +110,7 @@ struct ChatRowView: View {
                 .overlay(Circle().stroke(Color.gray.opacity(0.3), lineWidth: 1))
 
             VStack(alignment: .leading) {
-                Text(name)
+                Text(name) 
                     .fontWeight(.bold)
                 if hasNewMessage {
                     Text(status)

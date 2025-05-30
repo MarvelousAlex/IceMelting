@@ -160,16 +160,14 @@ struct InsightPageView: View {
                     .padding(.horizontal)
                 }
             }
-
-            // MARK: - Floating Chatbot Button
+            // Floating Chatbot Button
             VStack {
                 Spacer()
+                    .frame(height: 500)
                 HStack {
                     Spacer()
                     Button(action: {
-                        withAnimation {
-                            showChatbot.toggle()
-                        }
+                        showChatbot = true
                     }) {
                         Image(systemName: "brain.head.profile")
                             .resizable()
@@ -180,12 +178,11 @@ struct InsightPageView: View {
                             .clipShape(Circle())
                             .shadow(radius: 3)
                     }
-                    .padding(.bottom, 90)
                     .padding(.trailing, 20)
                 }
-                if showChatbot {
-                    ChatBotView(showChatbot: $showChatbot)
-                }
+            }
+            .sheet(isPresented: $showChatbot) {
+                ChatBotView(showChatbot: $showChatbot)
             }
         }
         .navigationBarBackButtonHidden()
